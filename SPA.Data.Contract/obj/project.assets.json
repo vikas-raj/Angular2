@@ -686,11 +686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular4\\SPA.Data.Contract\\SPA.Data.Contract.csproj",
+      "projectUniqueName": "D:\\Angular2\\SPA.Data.Contract\\SPA.Data.Contract.csproj",
       "projectName": "SPA.Data.Contract",
-      "projectPath": "D:\\Angular4\\SPA.Data.Contract\\SPA.Data.Contract.csproj",
+      "projectPath": "D:\\Angular2\\SPA.Data.Contract\\SPA.Data.Contract.csproj",
       "packagesPath": "C:\\Users\\vikas\\.nuget\\packages\\",
-      "outputPath": "D:\\Angular4\\SPA.Data.Contract\\obj\\",
+      "outputPath": "D:\\Angular2\\SPA.Data.Contract\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -709,8 +709,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "D:\\Angular4\\SPA.Model\\SPA.Model.csproj": {
-              "projectPath": "D:\\Angular4\\SPA.Model\\SPA.Model.csproj"
+            "D:\\Angular2\\SPA.Model\\SPA.Model.csproj": {
+              "projectPath": "D:\\Angular2\\SPA.Model\\SPA.Model.csproj"
             }
           }
         }

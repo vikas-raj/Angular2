@@ -28,6 +28,16 @@
             get { return this.GetStandardRepo<User>(); }
         }
 
+        public IRepository<Like> Likes
+        {
+            get { return this.GetStandardRepo<Like>(); }
+        }
+
+        public IRepository<Comment> Comments
+        {
+            get { return this.GetStandardRepo<Comment>(); }
+        }
+
         protected IRepositoryProvider RepositoryProvider { get; set; }
 
         private T GetRepo<T>()

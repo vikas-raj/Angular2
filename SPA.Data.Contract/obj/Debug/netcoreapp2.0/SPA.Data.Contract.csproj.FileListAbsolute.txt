@@ -10,3 +10,15 @@ D:\Angular4\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.Assembly
 D:\Angular4\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.csproj.CopyComplete
 D:\Angular4\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.dll
 D:\Angular4\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.pdb
+D:\Angular2\SPA.Data.Contract\bin\Debug\netcoreapp2.0\SPA.Data.Contract.deps.json
+D:\Angular2\SPA.Data.Contract\bin\Debug\netcoreapp2.0\SPA.Data.Contract.dll
+D:\Angular2\SPA.Data.Contract\bin\Debug\netcoreapp2.0\SPA.Data.Contract.pdb
+D:\Angular2\SPA.Data.Contract\bin\Debug\netcoreapp2.0\SPA.Model.dll
+D:\Angular2\SPA.Data.Contract\bin\Debug\netcoreapp2.0\SPA.Model.pdb
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.csprojAssemblyReference.cache
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.csproj.CoreCompileInputs.cache
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.AssemblyInfoInputs.cache
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.AssemblyInfo.cs
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.csproj.CopyComplete
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.dll
+D:\Angular2\SPA.Data.Contract\obj\Debug\netcoreapp2.0\SPA.Data.Contract.pdb

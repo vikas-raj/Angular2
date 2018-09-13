@@ -7,5 +7,7 @@ namespace SPA.Data.Contract
     {
         IJobSearchRepository JobSearchDetails { get; }
         IRepository<User> Users { get; }
+        IRepository<Like> Likes { get; }
+        IRepository<Comment> Comments { get; }
     }
 }

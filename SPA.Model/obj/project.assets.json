@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular4\\SPA.Model\\SPA.Model.csproj",
+      "projectUniqueName": "D:\\Angular2\\SPA.Model\\SPA.Model.csproj",
       "projectName": "SPA.Model",
-      "projectPath": "D:\\Angular4\\SPA.Model\\SPA.Model.csproj",
+      "projectPath": "D:\\Angular2\\SPA.Model\\SPA.Model.csproj",
       "packagesPath": "C:\\Users\\vikas\\.nuget\\packages\\",
-      "outputPath": "D:\\Angular4\\SPA.Model\\obj\\",
+      "outputPath": "D:\\Angular2\\SPA.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
