@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<app asp-ng2-prerender-module="ClientApp/dist/main-server">
+    <div id="loading-message">
+        <h1></h1>
+        <p><span></span></p>
+    </div>
+</app>
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}

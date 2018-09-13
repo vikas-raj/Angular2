@@ -1,0 +1,125 @@
+<!--<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">SPAJobPortal</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+                <li routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/home']">
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/counter']">
+                        <span class='glyphicon glyphicon-education'></span> Counter
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/fetch-data']">
+                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Dropdown
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a>Link 1</a>
+                            <a>Link 2</a>
+                            <a>Link 3</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="pull-right" routerLinkActive="active">
+                    <a [routerLink]="['/signup']">
+                        <span class='glyphicon glyphicon-th-list'></span> Sign Up
+                    </a>
+                </li>
+                <li class="pull-right" routerLinkActive="active">
+                    <a [routerLink]="['/login']">
+                        <span class='glyphicon glyphicon-th-list'></span> login
+                    </a>
+                </li>
+                <li class="pull-right" routerLinkActive="active">
+                    <a [routerLink]="['/login']">
+                        <span class='glyphicon glyphicon-th-list'></span> Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>-->
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">SPAJobPortal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" style="">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">
+                    <a [routerLink]="['/home']">
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a [routerLink]="['/counter']">
+                        <span class='glyphicon glyphicon-education'></span> Counter
+                    </a>
+                </li>
+                <li *ngIf="onLogedIn()" routerLinkActive="active">
+                    <a [routerLink]="['/fetch-data']">
+                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    </a>
+                </li>
+                <li *ngIf="onLogedIn()" routerLinkActive="active" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a>Action</a></li>
+                        <li><a>Another action</a></li>
+                        <li><a>Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a>Separated link</a></li>
+                        <li><a>One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="!onLogedIn()"  routerLinkActive="active">
+                    <a [routerLink]="['/signup']">
+                        <span class='glyphicon glyphicon-th-list'></span> Sign Up
+                    </a>
+                </li>
+                <li *ngIf="!onLogedIn()" routerLinkActive="active">
+                    <a [routerLink]="['/login']">
+                        <span class='glyphicon glyphicon-th-list'></span> login
+                    </a>
+                </li>
+                <li *ngIf="onLogedIn()"  routerLinkActive="active" (click)="onLogOut()">
+                    <a [routerLink]="['/login']">
+                        <span class='glyphicon glyphicon-th-list'></span> Log out
+                    </a>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

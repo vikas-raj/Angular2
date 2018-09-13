@@ -1,0 +1,18 @@
+<div class='container-fluid'>
+    <div class='row'>
+        <div style="width:100%">
+            <nav-menu></nav-menu>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 5%;position: relative;">
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-md-3" *ngIf="onLogedIn()">
+            <recent-post></recent-post>
+        </div>
+    </div>
+    <div>
+        <footer></footer>
+    </div>
+</div>

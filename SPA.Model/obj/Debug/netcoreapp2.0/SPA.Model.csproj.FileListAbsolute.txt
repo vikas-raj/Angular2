@@ -1,0 +1,9 @@
+D:\Angular4\SPA.Model\bin\Debug\netcoreapp2.0\SPA.Model.deps.json
+D:\Angular4\SPA.Model\bin\Debug\netcoreapp2.0\SPA.Model.dll
+D:\Angular4\SPA.Model\bin\Debug\netcoreapp2.0\SPA.Model.pdb
+D:\Angular4\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.csproj.CoreCompileInputs.cache
+D:\Angular4\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.AssemblyInfoInputs.cache
+D:\Angular4\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.AssemblyInfo.cs
+D:\Angular4\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.dll
+D:\Angular4\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.pdb
+D:\Angular4\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.csprojAssemblyReference.cache

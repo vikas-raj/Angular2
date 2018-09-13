@@ -1,0 +1,7 @@
+﻿.description-details li{
+    list-style:none
+}
+
+.description-details li strong{
+    font-size:20px;
+}

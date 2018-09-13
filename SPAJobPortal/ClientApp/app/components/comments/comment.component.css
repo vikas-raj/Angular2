@@ -1,0 +1,29 @@
+﻿.popUp {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    max-width: 60vw;
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 18px 4px;
+    transition: all 0.5s;
+    display: block;
+    position: fixed;
+    background: #fff;
+    z-index: 100015;
+    width: 40%;
+}
+
+.divOverlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 100014;
+    display: none;
+}
+    .popUp + .divOverlay {
+        display: block;
+    }

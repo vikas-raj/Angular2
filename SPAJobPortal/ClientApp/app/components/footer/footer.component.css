@@ -1,0 +1,52 @@
+﻿.social-Media div ul, .footer-menu .menu {
+    list-style: none;
+}
+    .social-Media div ul li, .footer-menu .menu  li{
+        float: left
+    }
+.fa {
+    font-size:50px
+}
+.footer-socialMedia-text {
+    text-align: center;
+    font-size: 30px;
+    color: #337ab7
+}
+.footer-socialMedia-ul {
+    width:100%;
+    text-align:center
+}
+.footer-socialMedia-li {
+    width:20%
+
+}
+.footer {
+    background-color: black;
+}   
+.copy-right-menu {
+    padding: 20px 0px 38px 0px;
+}
+.social-media-content {
+    width: 100%;
+    padding-left: 13%;
+}
+.social-Media{
+    display:flow-root;
+}
+.copyright{
+    float:left;
+    width:30%;
+    color:#fff;
+}
+.footer-menu{
+    text-align:right
+}
+.menu-content {
+    float: right;
+    padding-right: 20px;
+   cursor:pointer
+}
+.horizontal-line-seperator {
+    border-bottom: 1px solid white;
+    padding-top: 25px;
+}
