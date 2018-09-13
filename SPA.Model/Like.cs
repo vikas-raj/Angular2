@@ -8,6 +8,7 @@ namespace SPA.Model
     {
         public int Id { get;  set; }
         public string UserName { get; set; }
+        public int JobDescriptionId { get; set; }
         public DateTime LikedDate { get; set; }
     }
 }
