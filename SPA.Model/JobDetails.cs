@@ -1,11 +1,12 @@
 ﻿namespace SPA.Model
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     public class JobDetails
     {
         [Key]
-        public int Id { get; set; }
+        public int JobDetailId { get; set; }
         public string AboutTheCompany { get; set; }
         public string CompanyName { get; set; }
         public string CompanyWebsite { get; set; }
@@ -20,5 +21,8 @@
         public DateTime? EventDate { get; set; }
         public DateTime? LastDateToApply { get; set; }
         public string ExperienceRequired { get; set; }
+        public List<Like> Likes { get; set; }
+        public List<Comment> Comments { get; set; }
+
     }
 }

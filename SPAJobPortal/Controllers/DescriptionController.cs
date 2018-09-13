@@ -40,7 +40,7 @@ namespace SPAJobPortal.Controllers
 
                 var result = JsonConvert.DeserializeObject<List<JobDetails>>(JSON);
 
-                searchInfoFromRepo = result.Where(a => a.Id == Convert.ToInt32(id)).FirstOrDefault();
+                searchInfoFromRepo = result.Where(a => a.JobDetailId == Convert.ToInt32(id)).FirstOrDefault();
                 if (searchInfoFromRepo == null)
                 {
                     return NotFound();
@@ -48,7 +48,7 @@ namespace SPAJobPortal.Controllers
 
                 return Ok(searchInfoFromRepo);
             }
-            return Ok(new JobDetails() { Id=-1});
+            return Ok(new JobDetails() { JobDetailId=-1});
         }
 
         public static bool IsNumeric(object Expression)
