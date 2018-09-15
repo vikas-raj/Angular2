@@ -18,8 +18,15 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Like>()
-            //    .HasForeignKey(p => p.JobDetailFk);
+            modelBuilder.Entity<Like>()
+           .HasOne(pt => pt.JobDetails)
+           .WithMany(p => p.Likes)
+           .HasForeignKey(pt => pt.JobDetailFk);
+
+            modelBuilder.Entity<Comment>()
+           .HasOne(pt => pt.JobDetails)
+           .WithMany(p => p.Comments)
+           .HasForeignKey(pt => pt.JobDetailFk);
         }
     }
 }

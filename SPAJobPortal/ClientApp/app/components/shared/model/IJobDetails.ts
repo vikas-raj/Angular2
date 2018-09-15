@@ -1,4 +1,7 @@
-﻿export interface IJobDetails {
+﻿import { ILike } from "./ILike";
+import { IComment } from "./IComment";
+
+export interface IJobDetails {
     id: number;
     aboutTheCompany: string;
     companyName: string;
@@ -13,6 +16,8 @@
     importantNote: string;
     eventDate: Date;
     lastDateToApply: Date;
-    experienceRequired: string
+    experienceRequired: string,
+    likes: ILike[],
+    comments: IComment[]
 }
 

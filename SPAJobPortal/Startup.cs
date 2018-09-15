@@ -99,7 +99,7 @@ namespace SPAJobPortal
                     warnings.Throw(RelationalEventId.QueryClientEvaluationWarning);
                 }), ServiceLifetime.Transient);
             services.AddDbContext<DataContext>(
-                options => options.UseSqlServer(this.Configuration.GetConnectionString("JobportalConnection")).ConfigureWarnings(warnings =>
+                options => options.UseSqlServer(this.Configuration.GetConnectionString("JobportalConnection"), b =>b.MigrationsAssembly("SPA.Data")).ConfigureWarnings(warnings =>
                 {
                     warnings.Throw(RelationalEventId.QueryClientEvaluationWarning);
                 }), ServiceLifetime.Transient);

@@ -25,6 +25,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import { LikesComponent } from './components/likes/like.component';
 import { CommentsComponent } from './components/comments/comment.component';
 import { AuthGuard } from './components/shared/auth/auth.guard';
+import { NewJobRecordComponent } from './components/new-job/newJob.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -42,7 +43,8 @@ import { AuthGuard } from './components/shared/auth/auth.guard';
         SignUpComponent,
         LoginComponent,
         LikesComponent,
-        CommentsComponent
+        CommentsComponent,
+        NewJobRecordComponent
     ],
     imports: [
         BrowserModule,

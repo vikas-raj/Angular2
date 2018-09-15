@@ -23,6 +23,5 @@
         public string ExperienceRequired { get; set; }
         public List<Like> Likes { get; set; }
         public List<Comment> Comments { get; set; }
-
     }
 }

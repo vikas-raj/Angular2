@@ -86,7 +86,9 @@ export class SearchInfoService {
             eligibilityCriteria: "",
             howToApply: "",
             registrationLink: "",
-            importantNote: "", eventDate: new Date("February 4, 2016 10:13:00"), experienceRequired: "", lastDateToApply: new Date("February 4, 2016 10:13:00")
+            importantNote: "", eventDate: new Date("February 4, 2016 10:13:00"), experienceRequired: "", lastDateToApply: new Date("February 4, 2016 10:13:00"),
+            likes: [],
+            comments:[]
         };
     }
 }

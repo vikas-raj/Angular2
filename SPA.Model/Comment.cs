@@ -13,8 +13,9 @@ namespace SPA.Model
         //public int JobDescriptionId { get; set; }
         public string CommentDiscription { get; set; }
 
-        [ForeignKey("JobDetailFK")]
+        
         public JobDetails JobDetails { get; set; }
+        [ForeignKey("JobDetailFK")]
         public int JobDetailFk { get; set; }
 
     }
