@@ -31,6 +31,7 @@
     "@types/ramda": "0.25.8",
     "@types/webpack-env": "1.13.0",
     "alasql": "^0.4.5",
+    "angular2-datetimepicker": "^1.1.1",
     "angular2-multiselect-dropdown": "^2.9.0",
     "angular2-router-loader": "0.3.5",
     "angular2-template-loader": "0.6.2",

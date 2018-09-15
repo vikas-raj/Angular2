@@ -66,7 +66,7 @@
                 {
                     new Claim(ClaimTypes.NameIdentifier, userFromRepo.UserId.ToString()),
                     new Claim(ClaimTypes.Name, userFromRepo.UserName),
-                    new Claim("UserRole", "User")
+                    AddClaim(userFromRepo.UserRole)
                 }),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
@@ -74,8 +74,20 @@
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
-
             return Ok(new { tokenString });
+        }
+
+        private Claim AddClaim(string roleType)
+        {
+            switch (roleType)
+            {
+                case "User":
+                    return new Claim("UserRole", "User");
+                case "Admin":
+                    return new Claim("AdminRole", "Admin");
+                default:
+                    return new Claim("UserRole", "User");
+            }
         }
 
     }

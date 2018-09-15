@@ -10,6 +10,13 @@ import { SearchInfoService } from '../shared/services/search.service';
 })
 export class NewJobRecordComponent {
     newJobForm: FormGroup;
+    date: Date = new Date();
+    settings = {
+        bigBanner: true,
+        timePicker: true,
+        format: 'dd-MMM-yyyy hh:mm a',
+        defaultOpen: false
+    }
     constructor(private formBuilder: FormBuilder,
         private router: Router, private searchInfoService: SearchInfoService) {
 
@@ -33,7 +40,9 @@ export class NewJobRecordComponent {
             experienceRequired: [''],
         });
     }
+    onDateSelect(event: any) {
 
+    }
     onSubmit() {
         this.searchInfoService.saveDescription(this.newJobForm.value).subscribe((data: any) => {
 

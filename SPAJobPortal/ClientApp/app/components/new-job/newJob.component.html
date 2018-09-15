@@ -79,7 +79,8 @@
     </div>
     <div class="form-group">
         <label for="eventDate">eventDate</label>
-        <input type="text" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" />
+        <angular2-date-picker formControlName="eventDate" class="form-control" (onDateSelect)="onDateSelect($event)" [(ngModel)]="date" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" [settings]="settings"></angular2-date-picker>
+        <!--<input type="text" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" />-->
         <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
             <div *ngIf="f.eventDate.errors.required">eventDate is required</div>
         </div>

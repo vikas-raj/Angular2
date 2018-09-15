@@ -34,6 +34,8 @@ namespace SPAJobPortal.Controllers
         {
             if (IsNumeric(id))
             {
+                // to get username
+                var asd = HttpContext.User.Identity.Name;
                 var searchInfoFromRepo = new JobDetails();
 
                 var JSON = System.IO.File.ReadAllText("./DummyData/DummyData.json");

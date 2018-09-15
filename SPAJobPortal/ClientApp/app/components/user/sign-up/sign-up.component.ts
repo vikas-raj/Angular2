@@ -47,11 +47,11 @@ export class SignUpComponent implements OnInit {
         this.loading = true;
 
         let user = <User>{};
-        user.Email = this.registerForm.value.asd;
-        user.FirstName = this.registerForm.value.asd;
-        user.LastName = this.registerForm.value.asd;
-        user.UserName = this.registerForm.value.asd;
-        user.Password = this.registerForm.value.asd;
+        user.Email = this.registerForm.value.Email;
+        user.FirstName = this.registerForm.value.FirstName;
+        user.LastName = this.registerForm.value.LastName;
+        user.UserName = this.registerForm.value.UserName;
+        user.Password = this.registerForm.value.Password;
         user.ProfilePicture = this.fileUploads[0];
         this.userService.registerUser(user)
             .subscribe((data: any) => {
