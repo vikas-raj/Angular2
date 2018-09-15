@@ -1,10 +1,106 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<h2>Add new Job</h2>
+<form [formGroup]="newJobForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="aboutTheCompany">aboutTheCompany</label>
+        <input type="text" formControlName="aboutTheCompany" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aboutTheCompany.errors }" />
+        <div *ngIf="submitted && f.aboutTheCompany.errors" class="invalid-feedback">
+            <div *ngIf="f.aboutTheCompany.errors.required">aboutTheCompany is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="companyName">companyName</label>
+        <input type="text" formControlName="companyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
+        <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+            <div *ngIf="f.companyName.errors.required">companyName is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="companyWebsite">companyWebsite</label>
+        <input type="text" formControlName="companyWebsite" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.companyWebsite.errors }" />
+        <div *ngIf="submitted && f.companyWebsite.errors" class="invalid-feedback">
+            <div *ngIf="f.companyWebsite.errors.required">companyWebsite is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="jobLocation">jobLocation</label>
+        <input type="text" formControlName="jobLocation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.jobLocation.errors }" />
+        <div *ngIf="submitted && f.jobLocation.errors" class="invalid-feedback">
+            <div *ngIf="f.jobLocation.errors.required">jobLocation is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="position">position</label>
+        <input type="text" formControlName="position" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.position.errors }" />
+        <div *ngIf="submitted && f.position.errors" class="invalid-feedback">
+            <div *ngIf="f.position.errors.required">position is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="salary">salary</label>
+        <input type="text" formControlName="salary" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.salary.errors }" />
+        <div *ngIf="submitted && f.salary.errors" class="invalid-feedback">
+            <div *ngIf="f.salary.errors.required">salary is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="interviewVenue">interviewVenue</label>
+        <input type="text" formControlName="interviewVenue" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.interviewVenue.errors }" />
+        <div *ngIf="submitted && f.interviewVenue.errors" class="invalid-feedback">
+            <div *ngIf="f.interviewVenue.errors.required">interviewVenue is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="eligibilityCriteria">eligibilityCriteria</label>
+        <input type="text" formControlName="eligibilityCriteria" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eligibilityCriteria.errors }" />
+        <div *ngIf="submitted && f.eligibilityCriteria.errors" class="invalid-feedback">
+            <div *ngIf="f.eligibilityCriteria.errors.required">eligibilityCriteria is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="howToApply">howToApply</label>
+        <input type="text" formControlName="howToApply" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.howToApply.errors }" />
+        <div *ngIf="submitted && f.howToApply.errors" class="invalid-feedback">
+            <div *ngIf="f.howToApply.errors.required">howToApply is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="registrationLink">registrationLink</label>
+        <input type="text" formControlName="registrationLink" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.registrationLink.errors }" />
+        <div *ngIf="submitted && f.registrationLink.errors" class="invalid-feedback">
+            <div *ngIf="f.registrationLink.errors.required">registrationLink is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="importantNote">importantNote</label>
+        <input type="text" formControlName="importantNote" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.importantNote.errors }" />
+        <div *ngIf="submitted && f.importantNote.errors" class="invalid-feedback">
+            <div *ngIf="f.importantNote.errors.required">importantNote is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="eventDate">eventDate</label>
+        <input type="text" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" />
+        <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
+            <div *ngIf="f.eventDate.errors.required">eventDate is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastDateToApply">lastDateToApply</label>
+        <input type="text" formControlName="lastDateToApply" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastDateToApply.errors }" />
+        <div *ngIf="submitted && f.lastDateToApply.errors" class="invalid-feedback">
+            <div *ngIf="f.lastDateToApply.errors.required">lastDateToApply is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="experienceRequired">experienceRequired</label>
+        <input type="text" formControlName="experienceRequired" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.experienceRequired.errors }" />
+        <div *ngIf="submitted && f.experienceRequired.errors" class="invalid-feedback">
+            <div *ngIf="f.experienceRequired.errors.required">experienceRequired is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Create New Job</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/signup']" class="btn btn-link">Go to Job List</a>
+    </div>
+</form>

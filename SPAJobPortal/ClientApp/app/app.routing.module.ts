@@ -9,6 +9,7 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { AuthGuard } from './components/shared/auth/auth.guard';
+import { NewJobRecordComponent } from './components/new-job/newJob.component';
 
 const appRoutes: Routes =
     [
@@ -17,7 +18,9 @@ const appRoutes: Routes =
         { path: 'counter', component: CounterComponent },
         { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthGuard]  },
         { path: 'description/:id?', component: DescriptionComponent },
+        { path: 'createJob', component: NewJobRecordComponent },
         { path: 'not-found', component: NotFoundComponent },
+        
         {
             path: 'signup', component: UserComponent,
             children: [{ path: '', component: SignUpComponent }]

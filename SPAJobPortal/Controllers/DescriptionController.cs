@@ -48,7 +48,7 @@ namespace SPAJobPortal.Controllers
 
                 return Ok(searchInfoFromRepo);
             }
-            return Ok(new JobDetails() { JobDetailId=-1});
+            return Ok(new JobDetails() { JobDetailId = -1 });
         }
 
         public static bool IsNumeric(object Expression)
@@ -57,6 +57,16 @@ namespace SPAJobPortal.Controllers
 
             bool isNum = Double.TryParse(Convert.ToString(Expression), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
             return isNum;
+        }
+
+
+        [HttpPost("SaveDescription")]
+        //[Authorize(Policy = "User")]
+        public IActionResult SaveDescription([FromBody]JobDetails jobDetail)
+        {
+            this.JobSearchUow.JobSearchDetails.Add(jobDetail);
+            this.JobSearchUow.Commit();            
+            return Ok(jobDetail);
         }
 
     }

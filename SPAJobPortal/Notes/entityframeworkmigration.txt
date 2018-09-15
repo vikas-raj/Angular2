@@ -1,0 +1,7 @@
+Install Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.SqlServer and Microsoft.EntityFrameworkCore.Relational
+
+TO Add migration: Add-Migration MyFirstMigration (if have only one db context)
+TO Add migration: Add-Migration MyFirstMigration -Context DbContextName (if have more then one db context)
+TO remove migration: Remove-Migration
+Update database: Update-Database (if have only one db context)
+Update database: Update-Database -Context JobDbContext (if have more then one db context)

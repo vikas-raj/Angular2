@@ -9,5 +9,9 @@ namespace SPA.Data.Contract
         IRepository<User> Users { get; }
         IRepository<Like> Likes { get; }
         IRepository<Comment> Comments { get; }
+        /// <summary>
+        /// save pending changes to the db
+        /// </summary>
+        void Commit();
     }
 }

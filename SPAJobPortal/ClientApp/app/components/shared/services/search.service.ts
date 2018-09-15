@@ -17,9 +17,9 @@ export class SearchInfoService {
     ) {
 
     }
-    private saveDescriptionurl = 'api/Description/SaveDescription';
-    private deleteDescriptionurl = 'api/Description/DeleteDescription';
-    private baseUrl = 'api/Description';
+    readonly saveDescriptionurl = 'api/Description/SaveDescription';
+    readonly deleteDescriptionurl = 'api/Description/DeleteDescription';
+    readonly baseUrl = 'api/Description';
 
     getDescription(id: number): Observable<IJobDetails> {
 
@@ -40,10 +40,11 @@ export class SearchInfoService {
     }
 
     saveDescription(description: IJobDetails): Observable<IJobDetails> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
         let options = new RequestOptions({ headers: headers });
 
-        const url = `${this.saveDescription}`;
+        const url = `${this.saveDescriptionurl}`;
+
         return this.http.post(url, description, options)
             .map((p) => this.extractData2(p))
             .do(data => console.log('saveDescription : ' + JSON.stringify(data)))
