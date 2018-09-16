@@ -1,6 +1,9 @@
-﻿export interface IComment {
+﻿import { IJobDetails } from "./IJobDetails";
+
+export interface IComment {
     commentId: number,
     userName: string,
     comentedDate: Date,
-    commentDiscription: string
+    commentDiscription: string,
+    JobDetailFK: number
 }

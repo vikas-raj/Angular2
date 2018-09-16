@@ -12,9 +12,11 @@ namespace SPA.Model
         public DateTime ComentedDate { get; set; }
         //public int JobDescriptionId { get; set; }
         public string CommentDiscription { get; set; }
-
-        
-        public JobDetails JobDetails { get; set; }
+        public JobDetails JobDetails
+        {
+            get { return null; }
+            set { value = null; }
+        }
         [ForeignKey("JobDetailFK")]
         public int JobDetailFk { get; set; }
 

@@ -86,7 +86,36 @@ namespace SPA.Data
 
         public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            yield return DbSet.FirstOrDefault(predicate);
         }
+
+        //public IEnumerable<T> GetAllGetAll(Expression<Func<T, object>> predicate)
+        //{
+        //    return DbSet.Include(predicate);
+        //}
+
+        public IQueryable<T> GetAll(params Expression<Func<T, object>>[] predicates)
+        {
+            IQueryable<T> set = DbSet;
+
+            foreach (var includeExpression in predicates)
+            {
+                set = set.Include(includeExpression);
+            }
+            return set;
+        }
+
+        //public virtual T GetById(int id, params Expression<Func<T, object>>[] predicates)
+        //{
+        //    IQueryable<T> set = DbSet;
+
+        //    foreach (var includeExpression in predicates)
+        //    {
+        //        set = set.Include(includeExpression);
+        //    }
+
+
+        //    return set.FirstOrDefault();
+        //}
     }
 }

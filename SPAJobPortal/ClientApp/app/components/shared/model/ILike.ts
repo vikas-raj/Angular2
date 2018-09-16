@@ -1,5 +1,8 @@
-﻿export interface ILike {
+﻿import { IJobDetails } from "./IJobDetails";
+
+export interface ILike {
     likeId: number,
     userName: string,
-    likedDate: Date
+    likedDate: Date,
+    JobDetailFK: number
 }

@@ -1,26 +1,23 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { SearchInfoService } from '../shared/services/search.service';
 
 @Component({
     selector: 'fetchdata',
     templateUrl: './fetchdata.component.html',
     styleUrls: ['./fetchdata.component.css']
 })
-export class FetchDataComponent {
-    public forecasts: WeatherForecast[];
+export class FetchDataComponent implements OnInit {
+    constructor(/*http: Http, @Inject('BASE_URL') baseUrl: string*/private searchService: SearchInfoService) {
 
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
-        let options = new RequestOptions({ headers: headers });
-        http.get(baseUrl + 'api/SampleData/WeatherForecasts', options).subscribe(result => {
-            this.forecasts = result.json() as WeatherForecast[];
-        }, error => console.error(error));
     }
-}
+    ngOnInit(): void {
+        this.searchService.getDescription().subscribe((result) => {
+            if (result) {
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+            }
+        });
+    }
+
+   
 }

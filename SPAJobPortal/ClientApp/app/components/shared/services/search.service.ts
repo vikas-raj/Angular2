@@ -21,7 +21,19 @@ export class SearchInfoService {
     readonly deleteDescriptionurl = 'api/Description/DeleteDescription';
     readonly baseUrl = 'api/Description';
 
-    getDescription(id: number): Observable<IJobDetails> {
+
+    getDescription(): Observable<IJobDetails> {
+
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
+        let options = new RequestOptions({ headers: headers });
+        const url = `${this.baseUrl}`;
+        return this.http.get(url, options)
+            .map(this.extractData)
+            .do(data => console.log('GetDescription: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    getDescriptionById(id: number): Observable<IJobDetails> {
 
         if (id === 0) {
             return Observable.create((observer: any) => {
@@ -34,7 +46,7 @@ export class SearchInfoService {
         const url = `${this.baseUrl}/${id}`;
         //return this.http.get(this.baseUrl1 + url)
         return this.http.get(url, options)
-            .map(this.extractData2)
+            .map(this.extractData)
             .do(data => console.log('GetDescription: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
@@ -46,7 +58,7 @@ export class SearchInfoService {
         const url = `${this.saveDescriptionurl}`;
 
         return this.http.post(url, description, options)
-            .map((p) => this.extractData2(p))
+            .map((p) => this.extractData(p))
             .do(data => console.log('saveDescription : ' + JSON.stringify(data)))
             .catch(this.handleError)
 
@@ -57,11 +69,11 @@ export class SearchInfoService {
         let options = new RequestOptions({ headers: headers });
         const url = `${this.deleteDescriptionurl}/${description}`;
         return this.http.delete(url, options)
-            .map((p) => this.extractData2(p))
+            .map((p) => this.extractData(p))
             .catch(this.handleError);
     }
 
-    private extractData2(response: Response) {
+    private extractData(response: any) {
         let body = response.json();
         return body || {};
     }

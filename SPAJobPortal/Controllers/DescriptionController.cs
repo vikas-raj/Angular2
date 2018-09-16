@@ -27,10 +27,39 @@ namespace SPAJobPortal.Controllers
             this.connectionString = connectionString.Value;
         }
 
-        [HttpGet("{id}", Name = "GetDescription")]
+
+        [HttpGet("", Name = "GetDescription")]
         [HttpHead]
         //[Authorize(Policy = "User")]
-        public IActionResult GetDescription(int id)
+        public IActionResult GetDescription()
+        {
+            //if (IsNumeric(id))
+            //{
+            //    // to get username
+            //    var asd = HttpContext.User.Identity.Name;
+            //    var searchInfoFromRepo = new JobDetails();
+
+            //    var JSON = System.IO.File.ReadAllText("./DummyData/DummyData.json");
+
+            //    var result = JsonConvert.DeserializeObject<List<JobDetails>>(JSON);
+
+            //    searchInfoFromRepo = result.Where(a => a.JobDetailId == Convert.ToInt32(id)).FirstOrDefault();
+            //    if (searchInfoFromRepo == null)
+            //    {
+            //        return NotFound();
+            //    }
+
+            //    return Ok(searchInfoFromRepo);
+            //}
+
+            var result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList();
+            return Ok(result);
+        }
+
+        [HttpGet("{id}", Name = "GetDescriptionById")]
+        [HttpHead]
+        //[Authorize(Policy = "User")]
+        public IActionResult GetDescriptionById(int id)
         {
             //if (IsNumeric(id))
             //{
@@ -52,6 +81,11 @@ namespace SPAJobPortal.Controllers
             //}
 
             var result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList().FirstOrDefault(x => x.JobDetailId == id);
+            //foreach (var item in result.Likes)
+            //{
+            //    item.JobDetails = null;
+            //}
+            //result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList().FirstOrDefault();
             return Ok(result);
         }
 

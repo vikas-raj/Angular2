@@ -19,7 +19,7 @@ export class Description_Epics {
     public getDescription_EPIC(): Epic<FSAction, IAppState> {
         return (action$, store) => action$
             .ofType(Description_Actions.ActionTypes.GET_Description_STATE)
-            .switchMap(a => this.searchInfoService.getDescription(a.payload)
+            .switchMap(a => this.searchInfoService.getDescriptionById(a.payload)
                 .map(data => this.actions.getDescriptionSucceeded(data))
                 .catch(response => of(this.actions.getDescriptionFailed({
                     status: response.status,
