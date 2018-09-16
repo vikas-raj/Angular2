@@ -27,5 +27,7 @@
         //T GetSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
         IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
         //IEnumerable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties);
+
+        IQueryable<T> GetAll(params Expression<Func<T, object>>[] predicates);
     }
 }

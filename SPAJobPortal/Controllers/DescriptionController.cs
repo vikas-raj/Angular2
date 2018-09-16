@@ -30,27 +30,29 @@ namespace SPAJobPortal.Controllers
         [HttpGet("{id}", Name = "GetDescription")]
         [HttpHead]
         //[Authorize(Policy = "User")]
-        public IActionResult GetDescription(string id)
+        public IActionResult GetDescription(int id)
         {
-            if (IsNumeric(id))
-            {
-                // to get username
-                var asd = HttpContext.User.Identity.Name;
-                var searchInfoFromRepo = new JobDetails();
+            //if (IsNumeric(id))
+            //{
+            //    // to get username
+            //    var asd = HttpContext.User.Identity.Name;
+            //    var searchInfoFromRepo = new JobDetails();
 
-                var JSON = System.IO.File.ReadAllText("./DummyData/DummyData.json");
+            //    var JSON = System.IO.File.ReadAllText("./DummyData/DummyData.json");
 
-                var result = JsonConvert.DeserializeObject<List<JobDetails>>(JSON);
+            //    var result = JsonConvert.DeserializeObject<List<JobDetails>>(JSON);
 
-                searchInfoFromRepo = result.Where(a => a.JobDetailId == Convert.ToInt32(id)).FirstOrDefault();
-                if (searchInfoFromRepo == null)
-                {
-                    return NotFound();
-                }
+            //    searchInfoFromRepo = result.Where(a => a.JobDetailId == Convert.ToInt32(id)).FirstOrDefault();
+            //    if (searchInfoFromRepo == null)
+            //    {
+            //        return NotFound();
+            //    }
 
-                return Ok(searchInfoFromRepo);
-            }
-            return Ok(new JobDetails() { JobDetailId = -1 });
+            //    return Ok(searchInfoFromRepo);
+            //}
+
+            var result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList().FirstOrDefault(x => x.JobDetailId == id);
+            return Ok(result);
         }
 
         public static bool IsNumeric(object Expression)

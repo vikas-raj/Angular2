@@ -76,7 +76,7 @@ export class SearchInfoService {
     initializeSearchInfo(): IJobDetails {
         // Return an initialized object
         return {
-            id: 0,
+            jobDetailId: 0,
             aboutTheCompany: "",
             companyName: "",
             companyWebsite: "",

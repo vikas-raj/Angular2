@@ -9,13 +9,9 @@ namespace SPA.Model
     {
         public int LikeId { get;  set; }
         public string UserName { get; set; }
-        //public int JobDescriptionId { get; set; }
         public DateTime LikedDate { get; set; }
-
-        
         public JobDetails JobDetails { get; set; }
         [ForeignKey("JobDetailFK")]
-        public int JobDetailFk { get; set; }
-
+        public int JobDetailFK { get; set; }
     }
 }

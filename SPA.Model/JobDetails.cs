@@ -21,7 +21,7 @@
         public DateTime? EventDate { get; set; }
         public DateTime? LastDateToApply { get; set; }
         public string ExperienceRequired { get; set; }
-        public List<Like> Likes { get; set; }
-        public List<Comment> Comments { get; set; }
+        public ICollection<Like> Likes { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

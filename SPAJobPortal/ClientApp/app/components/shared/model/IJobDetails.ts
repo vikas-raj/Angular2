@@ -2,7 +2,7 @@
 import { IComment } from "./IComment";
 
 export interface IJobDetails {
-    id: number;
+    jobDetailId: number;
     aboutTheCompany: string;
     companyName: string;
     companyWebsite: string;

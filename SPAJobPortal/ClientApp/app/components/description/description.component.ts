@@ -27,9 +27,9 @@ export class DescriptionComponent {
         let asd = "";
         this.descriptionJobDetailSub = this.descriptionJobDetail$.subscribe(record => {
             if (record != undefined) {
-                if (record.id != -1) {
+                if (record.jobDetailId != -1) {
                     this.description = record;
-                } else if (record.id == -1) {
+                } else if (record.jobDetailId == -1) {
                     this.router.navigate(['not-found']);
                 }
             }
