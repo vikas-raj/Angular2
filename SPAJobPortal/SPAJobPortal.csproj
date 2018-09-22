@@ -27,6 +27,7 @@
   <ItemGroup>
     <None Remove="ClientApp\app\app.routing.module.ts" />
     <None Remove="ClientApp\app\components\comments\comment.component.ts" />
+    <None Remove="ClientApp\app\components\comment\comment.component.ts" />
     <None Remove="ClientApp\app\components\new-job\newJob.component.ts" />
     <None Remove="ClientApp\app\components\not-found\not-found.component.ts" />
     <None Remove="ClientApp\app\components\shared\auth\auth.guard.ts" />
@@ -56,6 +57,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.routing.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\comments\comment.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\comment\comment.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\new-job\newJob.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\not-found\not-found.component.ts" />

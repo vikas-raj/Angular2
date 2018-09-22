@@ -1,8 +1,6 @@
 ﻿
 <div *ngIf="description != undefined">
     <h1>Company Name | Degree | Batch | Date | Location</h1>
-
-
     <P><Strong>About The Company : </Strong>{{description.aboutTheCompany}}</P>
     <P><Strong>Company Name : </Strong>{{description.companyName}}</P>
     <P><Strong>Company Web site : </Strong>{{description.companyWebsite}}</P>
@@ -20,6 +18,18 @@
 </div>
 <div class="horizontal-line-seperator"></div>
 <div class="row">
-    <span class="glyphicon glyphicon-thumbs-up"></span> Like - {{likeCount}} / Comments - {{commentCount}}
+    <div class="col-md-6">
+        <!--<span class="glyphicon glyphicon-thumbs-up"></span>--> {{likeCount}} Likes
+    </div>
+    <div class="col-md-6"><div class="pull-right">{{commentCount}} Comments</div></div>
 </div>
-<app-likes  [description]="description"></app-likes><app-comments></app-comments>
+<div class="row">
+    <div class="col-md-4">
+        <app-likes [description]="description"></app-likes>
+    </div>
+    <div class="col-md-4" (click)="onFocusComment()" style="text-align:center;">
+        <span class="glyphicon glyphicon-comment" style="top: 3px;position: relative;right: 4px;"></span> Comment
+    </div>
+    <div class="col-md-4"><div class="pull-right"><span class="glyphicon glyphicon-share-alt" style="top: 3px;position: relative;right: 4px;"></span>Share</div></div>
+</div>
+<app-comment></app-comment>

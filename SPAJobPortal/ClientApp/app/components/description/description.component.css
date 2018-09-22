@@ -5,3 +5,8 @@
 .description-details li strong{
     font-size:20px;
 }
+div.row {
+    padding: 10px;
+    border-top: 1px solid gray;
+    margin: 0;
+}

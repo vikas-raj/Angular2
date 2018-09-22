@@ -32,3 +32,14 @@ export const descriptionJobDetail = (state: any = null, action: FSAction): IJobD
         default: return state;
     }
 };
+export const descritionCommentFocus = (state: boolean = false, action: FSAction): boolean => {
+    switch (action.type) {
+        case Description_Actions.ActionTypes.DescritionCommentFocus_True:
+            return true as boolean;
+        case Description_Actions.ActionTypes.DescritionCommentFocus_False:
+            return false as boolean;
+        default: return state;
+    }
+};
+
+

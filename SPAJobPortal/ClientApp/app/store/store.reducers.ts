@@ -2,7 +2,7 @@
 import { combineReducers, Reducer, Action } from 'redux';
 import { composeReducers, defaultFormReducer } from '@angular-redux/form';
 import { routerReducer } from '@angular-redux/router';
-import { activedescriptionJobDetails, descriptionJobDetail } from './description/description.reducer'
+import { activedescriptionJobDetails, descriptionJobDetail, descritionCommentFocus } from './description/description.reducer'
 import { ClientState, FSAction } from './store.model'
 import { FluxStandardAction } from 'flux-standard-action';
 import { Description_Actions } from './description/description.action';
@@ -49,7 +49,8 @@ export const rootReducer = composeReducers(
     defaultFormReducer(),
     combineReducers({
         activedescriptionJobDetails,
-        descriptionJobDetail
+        descriptionJobDetail,
+        descritionCommentFocus
     })
 );
 

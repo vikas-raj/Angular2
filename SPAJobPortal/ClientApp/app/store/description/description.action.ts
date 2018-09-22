@@ -24,6 +24,8 @@ export class Description_Actions {
         LIKE_Description_STARTED: 'DESCRIPTION/LIKE_Description_STARTED',
         LIKE_Description_SUCCEEDED: 'DESCRIPTION/LIKE_Description_SUCCEEDED',
         LIKE_Description_FAILED: 'DESCRIPTION/LIKE_Description_FAILED',
+        DescritionCommentFocus_True: 'DESCRIPTION/DescritionCommentFocus_True',
+        DescritionCommentFocus_False: 'DESCRIPTION/DescritionCommentFocus_Flase',
     };
 
     @dispatch()
@@ -121,4 +123,19 @@ export class Description_Actions {
         payload: error,
         error: true,
     })
+
+    @dispatch()
+    public descritionCommentFocus_True = (): FSAction => ({
+        type: Description_Actions.ActionTypes.DescritionCommentFocus_True,
+        meta: {},
+        payload: null,
+    })
+
+    @dispatch()
+    public descritionCommentFocus_False = (): FSAction => ({
+        type: Description_Actions.ActionTypes.DescritionCommentFocus_False,
+        meta: {},
+        payload: null,
+    })
+    
 };

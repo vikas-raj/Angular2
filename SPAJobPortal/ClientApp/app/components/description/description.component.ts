@@ -1,4 +1,4 @@
-﻿import { Component, Inject } from '@angular/core';
+﻿import { Component, Inject, ElementRef, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 import { SearchInfoService } from "../shared/services/search.service";
 import { Subscription, ISubscription } from "rxjs/Subscription";
@@ -20,6 +20,7 @@ export class DescriptionComponent {
     private commentCount: number = 0;
 
     @select(['descriptionJobDetail']) readonly descriptionJobDetail$: Observable<IJobDetails>;
+
     private descriptionJobDetailSub: ISubscription;
     constructor(private route: ActivatedRoute, private searchInfoService: SearchInfoService,
         private router: Router, private description_Actions: Description_Actions) {
@@ -49,9 +50,13 @@ export class DescriptionComponent {
                 this.description_Actions.getDescription(id);
             });
     }
-
+   
     ngOnDestroy() {
         //this.sub.unsubscribe();
 
+    }
+
+    onFocusComment() {
+        this.description_Actions.descritionCommentFocus_True();
     }
 }

@@ -27,6 +27,7 @@ import { CommentsComponent } from './components/comments/comment.component';
 import { AuthGuard } from './components/shared/auth/auth.guard';
 import { NewJobRecordComponent } from './components/new-job/newJob.component';
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -45,7 +46,8 @@ import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
         LoginComponent,
         LikesComponent,
         CommentsComponent,
-        NewJobRecordComponent
+        NewJobRecordComponent,
+        CommentComponent
     ],
     imports: [
         BrowserModule,

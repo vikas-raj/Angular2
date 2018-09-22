@@ -15,12 +15,14 @@ export interface ClientState<State> {
 
 export interface IAppState {
     activedescriptionJobDetails?: ClientState<IJobDetails>;   
-    descriptionJobDetail?: ClientState<IJobDetails>;   
+    descriptionJobDetail?: ClientState<IJobDetails>;
+    descritionCommentFocus?: boolean;
    // cachedSearchState?: ClientState<SearchState>;
 }
 
 export const INITIAL_STATE: IAppState = <IAppState>{
     activedescriptionJobDetails: {},
-    descriptionJobDetail: {}  
+    descriptionJobDetail: {},
+    descritionCommentFocus: false
 }
 
