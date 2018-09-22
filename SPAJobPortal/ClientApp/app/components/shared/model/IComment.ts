@@ -5,5 +5,6 @@ export interface IComment {
     userName: string,
     comentedDate: Date,
     commentDiscription: string,
-    JobDetailFK: number
+    JobDetailFK: number,
+    isActive: boolean
 }

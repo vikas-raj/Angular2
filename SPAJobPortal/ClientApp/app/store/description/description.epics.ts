@@ -54,10 +54,23 @@ export class Description_Epics {
                 .startWith(this.actions.deleteDescriptionStarted())
             );
     } 
+    public likeDescription_EPIC(): Epic<FSAction, IAppState> {
+        return (action$, store) => action$
+            .ofType(Description_Actions.ActionTypes.LIKE_Description_STATE)
+            .switchMap(a => this.searchInfoService.likeDescription(a.payload)
+                .map(data => this.actions.likeDescriptionSucceeded(data))
+                .catch(response => of(this.actions.likeDescriptionFailed({
+                    status: response.status,
+                    message: response.message
+                })))
+                .startWith(this.actions.likeDescriptionStarted())
+            );
+    }
 
     getRootEpic = () => combineEpics(
         this.getDescription_EPIC(),
         this.deleteDescription_EPIC(),
-        this.saveDescription_EPIC()
+        this.saveDescription_EPIC(),
+        this.likeDescription_EPIC()
     );
 }

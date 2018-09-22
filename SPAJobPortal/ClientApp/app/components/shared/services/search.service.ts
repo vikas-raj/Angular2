@@ -12,6 +12,7 @@ import 'rxjs/add/operator/publishReplay';
 
 @Injectable()
 export class SearchInfoService {
+    
     constructor(private http: Http,
         //@Inject('BASE_URL') private baseUrl1: string
     ) {
@@ -19,6 +20,7 @@ export class SearchInfoService {
     }
     readonly saveDescriptionurl = 'api/Description/SaveDescription';
     readonly deleteDescriptionurl = 'api/Description/DeleteDescription';
+    readonly likeDescriptionurl = 'api/Description/LikeDescription';
     readonly baseUrl = 'api/Description';
 
 
@@ -71,6 +73,18 @@ export class SearchInfoService {
         return this.http.delete(url, options)
             .map((p) => this.extractData(p))
             .catch(this.handleError);
+    }
+
+    likeDescription(description: IJobDetails): Observable<IJobDetails> {
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
+        let options = new RequestOptions({ headers: headers });
+
+        const url = `${this.likeDescriptionurl}`;
+
+        return this.http.post(url, description, options)
+            .map((p) => this.extractData(p))
+            .do(data => console.log('likeDescription : ' + JSON.stringify(data)))
+            .catch(this.handleError)
     }
 
     private extractData(response: any) {

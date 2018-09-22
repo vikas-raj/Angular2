@@ -21,12 +21,14 @@
             modelBuilder.Entity<Like>()
            .HasOne(pt => pt.JobDetails)
            .WithMany(p => p.Likes)
-           .HasForeignKey(pt => pt.JobDetailFk);
+           .HasForeignKey(pt => pt.JobDetailFK)
+           .HasConstraintName("FK_Likes_JobDetails_JobDetailFk");
 
             modelBuilder.Entity<Comment>()
            .HasOne(pt => pt.JobDetails)
            .WithMany(p => p.Comments)
-           .HasForeignKey(pt => pt.JobDetailFk);
+           .HasForeignKey(pt => pt.JobDetailFk)
+           .HasConstraintName("FK_Comments_JobDetails_JobDetailFk");
         }
     }
 }

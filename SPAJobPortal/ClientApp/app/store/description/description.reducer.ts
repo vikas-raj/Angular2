@@ -27,6 +27,7 @@ export const descriptionJobDetail = (state: any = null, action: FSAction): IJobD
         case Description_Actions.ActionTypes.GET_Description_SUCCEEDED:
         case Description_Actions.ActionTypes.SAVE_Description_SUCCEEDED:
         case Description_Actions.ActionTypes.DELETE_Description_SUCCEEDED:
+        case Description_Actions.ActionTypes.LIKE_Description_SUCCEEDED:
             return action.payload as IJobDetails;
         default: return state;
     }

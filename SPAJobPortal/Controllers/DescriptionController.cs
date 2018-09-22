@@ -12,6 +12,7 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace SPAJobPortal.Controllers
 {
@@ -105,6 +106,29 @@ namespace SPAJobPortal.Controllers
             this.JobSearchUow.JobSearchDetails.Add(jobDetail);
             this.JobSearchUow.Commit();            
             return Ok(jobDetail);
+        }
+
+        [HttpPost("LikeDescription")]
+        //[Authorize(Policy = "User")]
+        public IActionResult LikeDescription([FromBody]JobDetails jobDetail)
+        {
+            if (jobDetail.Likes.FirstOrDefault(a => a.UserName == User.FindFirst(ClaimTypes.Name).Value) != null)
+            {
+                var like = jobDetail.Likes.FirstOrDefault(a => a.UserName == User.FindFirst(ClaimTypes.Name).Value);
+                like.IsActive = !like.IsActive;
+                this.JobSearchUow.Likes.Update(like);
+            }
+            else
+            {
+                var like = new Like() { JobDetailFK = jobDetail.JobDetailId, IsActive = true, CreatedDate = DateTime.Now, UserName = User.FindFirst(ClaimTypes.Name).Value };
+                this.JobSearchUow.Likes.Add(like);
+            }
+           
+            this.JobSearchUow.Commit();
+
+            var result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList().FirstOrDefault(x => x.JobDetailId == jobDetail.JobDetailId);
+
+            return Ok(result);
         }
 
     }

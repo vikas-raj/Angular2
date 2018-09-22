@@ -16,6 +16,9 @@ import { Description_Actions } from "../../store/description/description.action"
 export class DescriptionComponent {
     private sub: Subscription;
     private description: IJobDetails;
+    private likeCount: number = 0;
+    private commentCount: number = 0;
+
     @select(['descriptionJobDetail']) readonly descriptionJobDetail$: Observable<IJobDetails>;
     private descriptionJobDetailSub: ISubscription;
     constructor(private route: ActivatedRoute, private searchInfoService: SearchInfoService,
@@ -24,12 +27,18 @@ export class DescriptionComponent {
     }
 
     ngOnInit(): void {
-        let asd = "";
         this.descriptionJobDetailSub = this.descriptionJobDetail$.subscribe(record => {
             if (record != undefined) {
-                if (record.jobDetailId != -1) {
+                
+                if (record.jobDetailId != -1 && record.jobDetailId != undefined) {
                     this.description = record;
-                } else if (record.jobDetailId == -1) {
+                    this.likeCount = record.likes.filter(a => a.isActive == true).length;
+                    this.commentCount = record.comments.filter(a => a.isActive == true).length;
+                }
+                else if (record.jobDetailId == undefined) {
+                    this.likeCount = 0;
+                    this.commentCount = 0;
+                }else if (record.jobDetailId == -1) {
                     this.router.navigate(['not-found']);
                 }
             }

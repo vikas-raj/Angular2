@@ -20,6 +20,6 @@
 </div>
 <div class="horizontal-line-seperator"></div>
 <div class="row">
-    <span class="glyphicon glyphicon-thumbs-up"></span> Like - {{description.likes.length}} / Comments - {{description.comments.length}}
+    <span class="glyphicon glyphicon-thumbs-up"></span> Like - {{likeCount}} / Comments - {{commentCount}}
 </div>
-<app-likes></app-likes><app-comments></app-comments>
+<app-likes  [description]="description"></app-likes><app-comments></app-comments>

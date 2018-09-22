@@ -9,7 +9,8 @@ namespace SPA.Model
     {
         public int LikeId { get; set; }
         public string UserName { get; set; }
-        public DateTime LikedDate { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime CreatedDate { get; set; }
         public JobDetails JobDetails
         {
             get { return null; }
