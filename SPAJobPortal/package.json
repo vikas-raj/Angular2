@@ -23,6 +23,7 @@
     "@angular/router": "^4.3.4",
     "@ng-select/ng-select": "0.25.0",
     "@ngtools/webpack": "^1.9.3",
+    "@ngui/datetime-picker": "^0.16.2",
     "@swimlane/ngx-datatable": "^11.3.2",
     "@types/chai": "4.0.1",
     "@types/file-saver": "0.0.1",

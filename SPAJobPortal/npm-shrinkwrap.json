@@ -216,6 +216,11 @@
         }
       }
     },
+    "@ngui/datetime-picker": {
+      "version": "0.16.2",
+      "resolved": "https://registry.npmjs.org/@ngui/datetime-picker/-/datetime-picker-0.16.2.tgz",
+      "integrity": "sha1-fZAXAqD8yRUn2j+IPAheXtxNhBw="
+    },
     "@swimlane/ngx-datatable": {
       "version": "11.3.2",
       "resolved": "https://registry.npmjs.org/@swimlane/ngx-datatable/-/ngx-datatable-11.3.2.tgz",

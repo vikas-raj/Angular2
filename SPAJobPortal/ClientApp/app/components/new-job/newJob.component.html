@@ -1,4 +1,12 @@
 ﻿<h2>Add new Job</h2>
+<input [(ngModel)]="date2"
+       ngui-datetime-picker
+       [disabled-dates]="date2DisabledDates"
+       [min-date]="date2MinDate"
+       [max-date]="date2MaxDate"
+       [show-close-layer]="true"
+       [show-week-numbers]="true"
+       [is-draggable]="false" />
 <form [formGroup]="newJobForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="aboutTheCompany">aboutTheCompany</label>
@@ -79,7 +87,10 @@
     </div>
     <div class="form-group">
         <label for="eventDate">eventDate</label>
-        <angular2-date-picker formControlName="eventDate" class="form-control" (onDateSelect)="onDateSelect($event)" [(ngModel)]="date" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" [settings]="settings"></angular2-date-picker>
+        <input required
+               formControlName="eventDate"
+               ngui-datetime-picker
+               [close-on-select]="false" />
         <!--<input type="text" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" />-->
         <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
             <div *ngIf="f.eventDate.errors.required">eventDate is required</div>

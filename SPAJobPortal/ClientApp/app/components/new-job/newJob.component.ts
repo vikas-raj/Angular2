@@ -10,6 +10,12 @@ import { SearchInfoService } from '../shared/services/search.service';
 })
 export class NewJobRecordComponent {
     newJobForm: FormGroup;
+
+    date2 = new Date(2017, 0, 28);
+    date2DisabledDates = [new Date(2017, 0, 10), new Date(2017, 0, 20)];
+    date2MinDate = new Date(2017, 0, 1);
+    date2MaxDate = new Date(2017, 11, 31);
+    date2New = new Date(2017, 11, 31);
     date: Date = new Date();
     settings = {
         bigBanner: true,

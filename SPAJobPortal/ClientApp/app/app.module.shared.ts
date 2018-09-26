@@ -28,6 +28,7 @@ import { AuthGuard } from './components/shared/auth/auth.guard';
 import { NewJobRecordComponent } from './components/new-job/newJob.component';
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 import { CommentComponent } from './components/comment/comment.component';
+import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -58,7 +59,8 @@ import { CommentComponent } from './components/comment/comment.component';
         AppRoutingModule,
         ModalModule.forRoot(),
         StoreModule,
-        AngularDateTimePickerModule
+        AngularDateTimePickerModule,
+        NguiDatetimePickerModule
     ]
     ,
     providers: [
