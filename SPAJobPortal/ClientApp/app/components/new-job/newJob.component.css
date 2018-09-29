@@ -1,2 +1,11 @@
-﻿body {
+﻿.rich-text-control {
+    float:left;
+    display:inline-block;
+    background-color:dimgray;
+    color:#ffffff;
+    padding: 5px 10px;
+    border-radius:5%
+}
+.rich-text-control:hover{
+    cursor:pointer;
 }

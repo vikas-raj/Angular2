@@ -30,6 +30,7 @@
     <None Remove="ClientApp\app\components\comment\comment.component.ts" />
     <None Remove="ClientApp\app\components\new-job\newJob.component.ts" />
     <None Remove="ClientApp\app\components\not-found\not-found.component.ts" />
+    <None Remove="ClientApp\app\components\rich-textbox\rich-textbox.component.ts" />
     <None Remove="ClientApp\app\components\shared\auth\auth.guard.ts" />
     <None Remove="ClientApp\app\components\shared\auth\auth.service.ts" />
     <None Remove="ClientApp\app\components\shared\model\IComment.ts" />
@@ -62,6 +63,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\new-job\newJob.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\not-found\not-found.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\recentpost\recentpost.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\rich-textbox\rich-textbox.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\auth\auth.guard.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\auth\auth.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\model\IComment.ts" />

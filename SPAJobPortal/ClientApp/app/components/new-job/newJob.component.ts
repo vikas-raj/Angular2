@@ -1,16 +1,49 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SearchInfoService } from '../shared/services/search.service';
 
+//import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
+import { QuillModule } from 'ngx-quill';
+import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
+
+//import Quill from 'quill';
+
+
+
+//// add mention module
+//import 'quill-mention';
+
+//// override p with div tag
+//const Parchment = Quill.import('parchment');
+//let Block = Parchment.query('block');
+
+//Block.tagName = 'DIV';
+//// or class NewBlock extends Block {}; NewBlock.tagName = 'DIV';
+//Quill.register(Block /* or NewBlock */, true);
+
+
+//// Add fonts to whitelist
+//var Font = Quill.import('formats/font');
+//// We do not add Aref Ruqaa since it is the default
+//Font.whitelist = ['mirza', 'aref', 'sans-serif', 'monospace', 'serif'];
+//Quill.register(Font, true);
+
 @Component({
     selector: 'app-new-job',
     templateUrl: './newJob.component.html',
-    styleUrls: ['./newJob.component.html']
+    styleUrls: ['./newJob.component.css']
 })
 export class NewJobRecordComponent {
     newJobForm: FormGroup;
-
+    @ViewChild('editor') editor: QuillEditorComponent;
+    AboutTheCompany: string = "About The Company";
+    InterViewVenue: string = "InterView Venue";
+    EligibilityCriteria: string = "Eligibility Criteria";
+    HowtoApply: string = "How to Apply";
+    ImportantNotes: string = "Important Notes";
+    ExperienceRequired: string = "Experience Required";
     date2 = new Date(2017, 0, 28);
     date2DisabledDates = [new Date(2017, 0, 10), new Date(2017, 0, 20)];
     date2MinDate = new Date(2017, 0, 1);
@@ -44,6 +77,7 @@ export class NewJobRecordComponent {
             eventDate: [''],
             lastDateToApply: [''],
             experienceRequired: [''],
+            editor:['test']
         });
     }
     onDateSelect(event: any) {
@@ -53,5 +87,12 @@ export class NewJobRecordComponent {
         this.searchInfoService.saveDescription(this.newJobForm.value).subscribe((data: any) => {
 
         });
+    }
+
+    onAdd(event: any): void{
+        this.newJobForm.patchValue({          
+            aboutTheCompany: event
+        });
+        console.log(event);
     }
 }

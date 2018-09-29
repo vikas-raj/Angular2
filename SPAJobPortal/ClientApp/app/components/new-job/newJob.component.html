@@ -1,16 +1,22 @@
 ﻿<h2>Add new Job</h2>
-<input [(ngModel)]="date2"
+<!--<input [(ngModel)]="date2"
        ngui-datetime-picker
        [disabled-dates]="date2DisabledDates"
        [min-date]="date2MinDate"
        [max-date]="date2MaxDate"
        [show-close-layer]="true"
        [show-week-numbers]="true"
-       [is-draggable]="false" />
+       [is-draggable]="false" />-->
 <form [formGroup]="newJobForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="aboutTheCompany">aboutTheCompany</label>
-        <input type="text" formControlName="aboutTheCompany" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aboutTheCompany.errors }" />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="aboutTheCompany" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.aboutTheCompany.errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"> <rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.aboutTheCompany: ''" [parentSource]="AboutTheCompany"></rich-text-control></div></div>
+        </div>
         <div *ngIf="submitted && f.aboutTheCompany.errors" class="invalid-feedback">
             <div *ngIf="f.aboutTheCompany.errors.required">aboutTheCompany is required</div>
         </div>
@@ -52,21 +58,37 @@
     </div>
     <div class="form-group">
         <label for="interviewVenue">interviewVenue</label>
-        <input type="text" formControlName="interviewVenue" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.interviewVenue.errors }" />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="interviewVenue" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.interviewVenue.errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"><rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.interviewVenue: ''" [parentSource]="InterViewVenue"></rich-text-control></div></div>
+        </div>
         <div *ngIf="submitted && f.interviewVenue.errors" class="invalid-feedback">
             <div *ngIf="f.interviewVenue.errors.required">interviewVenue is required</div>
         </div>
     </div>
     <div class="form-group">
         <label for="eligibilityCriteria">eligibilityCriteria</label>
-        <input type="text" formControlName="eligibilityCriteria" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eligibilityCriteria.errors }" />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="eligibilityCriteria" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eligibilityCriteria.errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"><div class="rich-text-control"> <rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.eligibilityCriteria: ''" [parentSource]="EligibilityCriteria"></rich-text-control></div></div>
+        </div>
         <div *ngIf="submitted && f.eligibilityCriteria.errors" class="invalid-feedback">
             <div *ngIf="f.eligibilityCriteria.errors.required">eligibilityCriteria is required</div>
         </div>
     </div>
     <div class="form-group">
         <label for="howToApply">howToApply</label>
-        <input type="text" formControlName="howToApply" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.howToApply.errors }" />
+        <div class="row">
+            <div class="col-md-8"><input type="text" formControlName="howToApply" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.howToApply.errors }" /></div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"><rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.howToApply: ''" [parentSource]="HowtoApply"> </rich-text-control></div></div>
+        </div>
         <div *ngIf="submitted && f.howToApply.errors" class="invalid-feedback">
             <div *ngIf="f.howToApply.errors.required">howToApply is required</div>
         </div>
@@ -80,7 +102,13 @@
     </div>
     <div class="form-group">
         <label for="importantNote">importantNote</label>
-        <input type="text" formControlName="importantNote" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.importantNote.errors }" />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="importantNote" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.importantNote.errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"><rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.importantNote: ''" [parentSource]="ImportantNotes"></rich-text-control></div></div>
+        </div>
         <div *ngIf="submitted && f.importantNote.errors" class="invalid-feedback">
             <div *ngIf="f.importantNote.errors.required">importantNote is required</div>
         </div>
@@ -105,7 +133,13 @@
     </div>
     <div class="form-group">
         <label for="experienceRequired">experienceRequired</label>
-        <input type="text" formControlName="experienceRequired" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.experienceRequired.errors }" />
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="experienceRequired" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.experienceRequired.errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"><div class="rich-text-control"> <rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.experienceRequired: ''" [parentSource]="ExperienceRequired"></rich-text-control></div></div>
+        </div>
         <div *ngIf="submitted && f.experienceRequired.errors" class="invalid-feedback">
             <div *ngIf="f.experienceRequired.errors.required">experienceRequired is required</div>
         </div>
@@ -116,3 +150,4 @@
         <a [routerLink]="['/signup']" class="btn btn-link">Go to Job List</a>
     </div>
 </form>
+<!--<quill-editor #editor></quill-editor>-->

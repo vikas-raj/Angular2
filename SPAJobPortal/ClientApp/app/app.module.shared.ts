@@ -29,6 +29,8 @@ import { NewJobRecordComponent } from './components/new-job/newJob.component';
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 import { CommentComponent } from './components/comment/comment.component';
 import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
+import { QuillModule } from 'ngx-quill';
+import { RichTextBoxComponent } from './components/rich-textbox/rich-textbox.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -48,7 +50,8 @@ import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
         LikesComponent,
         CommentsComponent,
         NewJobRecordComponent,
-        CommentComponent
+        CommentComponent,
+        RichTextBoxComponent
     ],
     imports: [
         BrowserModule,
@@ -60,7 +63,8 @@ import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
         ModalModule.forRoot(),
         StoreModule,
         AngularDateTimePickerModule,
-        NguiDatetimePickerModule
+        NguiDatetimePickerModule,
+        QuillModule
     ]
     ,
     providers: [
