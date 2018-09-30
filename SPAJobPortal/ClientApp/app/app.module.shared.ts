@@ -51,7 +51,7 @@ import { RichTextBoxComponent } from './components/rich-textbox/rich-textbox.com
         CommentsComponent,
         NewJobRecordComponent,
         CommentComponent,
-        RichTextBoxComponent
+        RichTextBoxComponent,
     ],
     imports: [
         BrowserModule,

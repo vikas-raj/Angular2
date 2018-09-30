@@ -1,0 +1,3 @@
+﻿// TO delete from table which has foreign key table to another table
+DELETE FROM jobdetails
+DBCC CHECKIDENT ('jobdetails',RESEED, 0)

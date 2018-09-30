@@ -46,7 +46,7 @@ export class NewJobRecordComponent {
     ExperienceRequired: string = "Experience Required";
     date2 = new Date(2017, 0, 28);
     date2DisabledDates = [new Date(2017, 0, 10), new Date(2017, 0, 20)];
-    date2MinDate = new Date(2017, 0, 1);
+    date2MinDate = new Date();
     date2MaxDate = new Date(2017, 11, 31);
     date2New = new Date(2017, 11, 31);
     date: Date = new Date();
@@ -76,8 +76,7 @@ export class NewJobRecordComponent {
             importantNote: [''],
             eventDate: [''],
             lastDateToApply: [''],
-            experienceRequired: [''],
-            editor:['test']
+            experienceRequired: ['']
         });
     }
     onDateSelect(event: any) {
@@ -90,9 +89,28 @@ export class NewJobRecordComponent {
     }
 
     onAdd(event: any): void{
-        this.newJobForm.patchValue({          
-            aboutTheCompany: event
-        });
+        switch (event.source) {
+            case this.AboutTheCompany:
+                this.newJobForm.patchValue({ aboutTheCompany: event.value });
+                break;
+            case this.InterViewVenue:
+                this.newJobForm.patchValue({ interviewVenue: event.value });
+                break;
+            case this.EligibilityCriteria:
+                this.newJobForm.patchValue({ eligibilityCriteria: event.value });
+                break;
+            case this.HowtoApply:
+                this.newJobForm.patchValue({ howToApply: event.value });
+                break;
+            case this.ImportantNotes:
+                this.newJobForm.patchValue({ importantNote: event.value });
+                break;
+            case this.ExperienceRequired:
+                this.newJobForm.patchValue({ experienceRequired: event.value });
+                break;
+            default:
+        }
+        
         console.log(event);
     }
 }

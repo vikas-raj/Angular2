@@ -7,12 +7,15 @@
     <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="Comment" class="parent-title">{{parentSource}}</label>
-            <quill-editor format="text" [(ngModel)]="textFormat" formControlName="editor"></quill-editor>
+            <quill-editor [class.display-none]="showHtml"  format="text" [(ngModel)]="textFormat" formControlName="editor"></quill-editor>
+            <div class="html-text-view" [class.display-none]="!showHtml" ><Strong>HTML format of entered text is : </Strong><div class="html-text-container" [innerHTML]="textFormat != null && textFormat != undefined && textFormat.length > 0 ? textFormat : 'No text entered . Please enter any text to view HTML format here. Click on Edit button to enter any text'"></div></div>
+
         </div>
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Add</button>
             <button class="btn btn-primary" type="reset" (click)="resetForm()">Reset</button>
-
+            <button *ngIf="!showHtml" type="button" class="btn btn-primary" (click)="showHtml = !showHtml"> View Html Text</button>
+            <button *ngIf="showHtml" type="button" class="btn btn-primary" (click)="showHtml = !showHtml"> Edit Html Text</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         </div>
     </form>

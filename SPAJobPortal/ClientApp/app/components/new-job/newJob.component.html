@@ -118,6 +118,7 @@
         <input required
                formControlName="eventDate"
                ngui-datetime-picker
+               [min-date]="date2MinDate"
                [close-on-select]="false" />
         <!--<input type="text" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.eventDate.errors }" />-->
         <div *ngIf="submitted && f.eventDate.errors" class="invalid-feedback">
@@ -126,7 +127,11 @@
     </div>
     <div class="form-group">
         <label for="lastDateToApply">lastDateToApply</label>
-        <input type="text" formControlName="lastDateToApply" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastDateToApply.errors }" />
+        <input required
+               formControlName="lastDateToApply"
+               ngui-datetime-picker
+               [min-date]="date2MinDate"
+               [close-on-select]="false" [ngClass]="{ 'is-invalid': submitted && f.lastDateToApply.errors }" />
         <div *ngIf="submitted && f.lastDateToApply.errors" class="invalid-feedback">
             <div *ngIf="f.lastDateToApply.errors.required">lastDateToApply is required</div>
         </div>

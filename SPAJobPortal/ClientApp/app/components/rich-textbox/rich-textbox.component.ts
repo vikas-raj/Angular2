@@ -19,8 +19,9 @@ export class RichTextBoxComponent implements OnInit {
     commentForm: FormGroup;
     submitted: boolean = false;
     loading: boolean = false;
+    showHtml: boolean = false;
     private comment: string = "";
-
+    private textFormat: string = "";
     ngOnInit(): void {
         this.commentForm = this.formBuilder.group({
             editor: [this.parentValue]
@@ -42,7 +43,7 @@ export class RichTextBoxComponent implements OnInit {
         //}, (error) => {
         //    console.log(error);
         //});
-        this.onAdd.emit(this.commentForm.value.editor);
+        this.onAdd.emit({ value: this.commentForm.value.editor, source: this.parentSource });
         this.commentForm.reset();
         this.closePopUp();
     }
@@ -61,5 +62,11 @@ export class RichTextBoxComponent implements OnInit {
     }
     resetForm() {
         this.commentForm.reset();
+    }
+    ngDoCheck() {
+        if (this.commentForm) {
+            let asd = this.commentForm.value.editor;
+        }
+
     }
 }

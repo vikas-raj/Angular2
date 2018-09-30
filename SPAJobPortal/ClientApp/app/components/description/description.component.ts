@@ -1,4 +1,4 @@
-﻿import { Component, Inject, ElementRef, ViewChild } from '@angular/core';
+﻿import { Component, Inject, ElementRef, ViewChild, Pipe } from '@angular/core';
 import { Http } from '@angular/http';
 import { SearchInfoService } from "../shared/services/search.service";
 import { Subscription, ISubscription } from "rxjs/Subscription";
@@ -7,6 +7,7 @@ import { Observable } from "rxjs/Observable";
 import { select } from "@angular-redux/store/lib/src";
 import { IJobDetails } from "../shared/model/IJobDetails";
 import { Description_Actions } from "../../store/description/description.action";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'description',
@@ -60,3 +61,4 @@ export class DescriptionComponent {
         this.description_Actions.descritionCommentFocus_True();
     }
 }
+

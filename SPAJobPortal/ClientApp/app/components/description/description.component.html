@@ -1,20 +1,20 @@
 ﻿
 <div *ngIf="description != undefined">
     <h1>Company Name | Degree | Batch | Date | Location</h1>
-    <P><Strong>About The Company : </Strong>{{description.aboutTheCompany}}</P>
-    <P><Strong>Company Name : </Strong>{{description.companyName}}</P>
-    <P><Strong>Company Web site : </Strong>{{description.companyWebsite}}</P>
-    <P><Strong>Job Location : </Strong>{{description.jobLocation}}</P>
-    <P><Strong>Position : </Strong>{{description.position}}</P>
-    <P><Strong>Salary : </Strong>{{description.salary}}</P>
-    <P><Strong>Event Date : </Strong>{{description.eventDate}}</P>
-    <P><Strong>Last Date to Apply : </Strong>{{description.lastDateToApply}}</P>
-    <P><Strong>Interview Venue : </Strong>{{description.interviewVenue}}</P>
-    <P><Strong>Experience Required : </Strong>{{description.experienceRequired}}</P>
-    <P><Strong>EligibilityCriteria : </Strong>{{description.eligibilityCriteria}}</P>
-    <P><Strong>How To Apply : </Strong>{{description.howToApply}}</P>
-    <P><Strong>Registration Link : </Strong>{{description.registrationLink}}</P>
-    <P><Strong>Important Note : </Strong>{{description.importantNote}}</P>
+    <div><Strong>About The Company : </Strong><div [innerHTML]="description.aboutTheCompany"></div></div>
+    <div><Strong>Company Name : </Strong><div [innerHTML]="description.companyName"></div></div>
+    <div><Strong>Company Web site : </Strong><div [innerHTML]="description.companyWebsite"></div></div>
+    <div><Strong>Job Location : </Strong><div [innerHTML]="description.jobLocation"></div></div>
+    <div><Strong>Position : </Strong><div [innerHTML]="description.position"></div></div>
+    <div><Strong>Salary : </Strong><div [innerHTML]="description.salary"></div></div>
+    <div><Strong>Event Date : </Strong><div [innerHTML]="description.eventDate"></div></div>
+    <div><Strong>Last Date to Apply : </Strong><div [innerHTML]="description.lastDateToApply"></div></div>
+    <div><Strong>Interview Venue : </Strong><div [innerHTML]="description.interviewVenue"></div></div>
+    <div><Strong>Experience Required : </Strong><div [innerHTML]="description.experienceRequired"></div></div>
+    <div><Strong>EligibilityCriteria : </Strong><div [innerHTML]="description.eligibilityCriteria"></div></div>
+    <div><Strong>How To Apply : </Strong><div [innerHTML]="description.howToApply"></div></div>
+    <div><Strong>Registration Link : </Strong><div [innerHTML]="description.registrationLink"></div></div>
+    <div><Strong>Important Note : </Strong><div [innerHTML]="description.importantNote"></div></div>
 </div>
 <div class="horizontal-line-seperator"></div>
 <div class="row">

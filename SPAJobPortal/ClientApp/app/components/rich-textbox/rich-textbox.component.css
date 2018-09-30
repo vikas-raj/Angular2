@@ -52,3 +52,16 @@
 .btn-primary{
     margin-left: 15px;
 }
+.html-text-view {
+    color: black;
+    margin-left: 15px;
+    min-height: 266px;
+    max-height: 266px;
+    overflow-y:auto;
+}
+.display-none{
+    display:none;
+}
+.html-text-container{
+    padding:15px;
+}
