@@ -24,7 +24,7 @@ export class SearchInfoService {
     readonly baseUrl = 'api/Description';
 
 
-    getDescription(): Observable<IJobDetails> {
+    getDescription(): Observable<IJobDetails[]> {
 
         let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
         let options = new RequestOptions({ headers: headers });

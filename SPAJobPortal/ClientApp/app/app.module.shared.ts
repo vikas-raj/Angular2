@@ -31,6 +31,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 import { QuillModule } from 'ngx-quill';
 import { RichTextBoxComponent } from './components/rich-textbox/rich-textbox.component';
+import { PagerService } from './components/shared/services/PagerService';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -70,7 +71,8 @@ import { RichTextBoxComponent } from './components/rich-textbox/rich-textbox.com
     providers: [
         SearchInfoService,
         UserService,
-        AuthGuard
+        AuthGuard,
+        PagerService
     ]
 })
 

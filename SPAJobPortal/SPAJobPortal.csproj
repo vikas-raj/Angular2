@@ -38,6 +38,7 @@
     <None Remove="ClientApp\app\components\shared\model\IJobDetails.ts" />
     <None Remove="ClientApp\app\components\shared\model\ILike.ts" />
     <None Remove="ClientApp\app\components\shared\model\IUser.ts" />
+    <None Remove="ClientApp\app\components\shared\services\PagerService.ts" />
     <None Remove="ClientApp\app\components\shared\services\search.service.ts" />
     <None Remove="ClientApp\app\components\shared\services\user.service.ts" />
     <None Remove="ClientApp\app\components\user\sign-up\sign-up.component.ts" />
@@ -71,6 +72,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\shared\model\IJobDetails.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\model\ILike.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\model\IUser.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\shared\services\PagerService.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\services\search.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\services\user.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\user\sign-up\sign-up.component.ts" />
