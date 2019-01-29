@@ -1,4 +1,4 @@
-﻿import { Component, ViewChild } from '@angular/core';
+﻿import { Component, ViewChild, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SearchInfoService } from '../shared/services/search.service';
@@ -7,28 +7,9 @@ import { SearchInfoService } from '../shared/services/search.service';
 
 import { QuillModule } from 'ngx-quill';
 import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
+import { ISubscription } from 'rxjs/Subscription';
 
 //import Quill from 'quill';
-
-
-
-//// add mention module
-//import 'quill-mention';
-
-//// override p with div tag
-//const Parchment = Quill.import('parchment');
-//let Block = Parchment.query('block');
-
-//Block.tagName = 'DIV';
-//// or class NewBlock extends Block {}; NewBlock.tagName = 'DIV';
-//Quill.register(Block /* or NewBlock */, true);
-
-
-//// Add fonts to whitelist
-//var Font = Quill.import('formats/font');
-//// We do not add Aref Ruqaa since it is the default
-//Font.whitelist = ['mirza', 'aref', 'sans-serif', 'monospace', 'serif'];
-//Quill.register(Font, true);
 
 @Component({
     selector: 'app-new-job',
@@ -38,6 +19,12 @@ import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
 export class NewJobRecordComponent {
     newJobForm: FormGroup;
     @ViewChild('editor') editor: QuillEditorComponent;
+
+    typeaheadKeySkills = new EventEmitter<string>();
+    SubscriptionTypeaheadKeySkills: ISubscription;
+    dropdownListForKeySkills: any[] = [];
+
+    selectedKeySkills: any[] = [];
     AboutTheCompany: string = "About The Company";
     InterViewVenue: string = "InterView Venue";
     EligibilityCriteria: string = "Eligibility Criteria";
@@ -76,10 +63,27 @@ export class NewJobRecordComponent {
             importantNote: [''],
             eventDate: [''],
             lastDateToApply: [''],
-            experienceRequired: ['']
+            experienceRequired: [''],
+            keySkills:[]
         });
+
+        this.SubscriptionTypeaheadKeySkills = this.typeaheadKeySkills
+            .distinctUntilChanged()
+            .debounceTime(200)
+            .filter((skill: string) => skill != null && skill.length > 2)
+            .switchMap(search => this.searchInfoService.getKeySkills(search))
+            .subscribe(items => {
+                this.dropdownListForKeySkills = items;
+            },
+            (err) => {
+            })
     }
-    onDateSelect(event: any) {
+
+    onItemSelect(item: any) {
+
+    }
+
+    onDateSelect(event: any): void {
 
     }
     onSubmit() {

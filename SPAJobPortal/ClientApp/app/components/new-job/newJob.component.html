@@ -94,6 +94,30 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="keyskills">Key Skills</label>
+        <div class="row">
+            <ng-select [items]="drodownListForKeySkills"
+                       [multiple]="true"
+                       formControlName="keySkills"
+                       [addTag]="true"
+                       bindLabel="login"
+                       placeholder="Key Skills"
+                       (change)="onItemSelect($event)"
+                       [typeahead]="typeaheadKeySkills"
+                       [(ngModel)]="selectedKeySkills">
+                <!--<ng-template ng-option-tmp let-item="item">
+                    <img [src]="item.avatar_url" width="20px" height="20px"> {{item.login}}
+                </ng-template>-->
+            </ng-select>
+        </div>
+        <div *ngIf="submitted && f.howToApply.errors" class="invalid-feedback">
+            <div *ngIf="f.howToApply.errors.required">howToApply is required</div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="form-group">
         <label for="registrationLink">registrationLink</label>
         <input type="text" formControlName="registrationLink" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.registrationLink.errors }" />
         <div *ngIf="submitted && f.registrationLink.errors" class="invalid-feedback">

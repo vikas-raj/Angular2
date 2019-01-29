@@ -99,6 +99,10 @@ export class SearchInfoService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
+    getKeySkills(searchSkill: string) : any[]{
+        return [];
+    }
+
     initializeSearchInfo(): IJobDetails {
         // Return an initialized object
         return {

@@ -16,7 +16,7 @@ export class UserService {
 
         const url = `${this.registration}`;
         return this.http.post(url, user, options)
-            .map((p) => this.extractData2(p))
+            .map((p) => p)
             .do(data => console.log('saveDescription : ' + JSON.stringify(data)))
             .catch(this.handleError)
 

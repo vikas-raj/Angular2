@@ -27,26 +27,33 @@
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
-            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
-
-            if (await AuthUow.UserExists(userForRegisterDto.Username))
-                ModelState.AddModelError("Username", "Username already exists");
-
-            // validate request
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var userToCreate = new User
+            try
             {
-                UserName = userForRegisterDto.Username,
-                Email = userForRegisterDto.Email,
-                FirstName = userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName
-            };
+                userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            var createUser = await AuthUow.Register(userToCreate, userForRegisterDto.Password);
+                if (await AuthUow.UserExists(userForRegisterDto.Username))
+                    ModelState.AddModelError("Username", "Username already exists");
 
-            return StatusCode(201);
+                // validate request
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var userToCreate = new User
+                {
+                    UserName = userForRegisterDto.Username,
+                    Email = userForRegisterDto.Email,
+                    FirstName = userForRegisterDto.FirstName,
+                    LastName = userForRegisterDto.LastName
+                };
+
+                var createUser = await AuthUow.Register(userToCreate, userForRegisterDto.Password);
+
+                return StatusCode(201);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost("login")]

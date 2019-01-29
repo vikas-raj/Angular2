@@ -32,6 +32,8 @@ import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 import { QuillModule } from 'ngx-quill';
 import { RichTextBoxComponent } from './components/rich-textbox/rich-textbox.component';
 import { PagerService } from './components/shared/services/PagerService';
+import { NgSelectModule, NgOption } from '@ng-select/ng-select';
+
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -65,7 +67,7 @@ import { PagerService } from './components/shared/services/PagerService';
         StoreModule,
         AngularDateTimePickerModule,
         NguiDatetimePickerModule,
-        QuillModule
+        QuillModule, NgSelectModule
     ]
     ,
     providers: [

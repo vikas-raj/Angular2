@@ -55,8 +55,9 @@ export class SignUpComponent implements OnInit {
         user.ProfilePicture = this.fileUploads[0];
         this.userService.registerUser(user)
             .subscribe((data: any) => {
-                if (data.Succeeded == true) {
-
+                if (data && data.status && data.status == 201) {
+                    this.loading = false;
+                    this.router.navigateByUrl('/login');
                 }
                 else {
                     let asd = "error occured";
