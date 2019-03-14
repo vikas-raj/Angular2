@@ -515,10 +515,12 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
-      "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
+      "sha512": "CCf4NjmDOoise7FAij2VPuHIgKKsu696vkTwhOkPVQfLsTmB2WLFfQ4yeO5Udtk8FD636UBMx6Y9eovzJKT76A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.0.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
@@ -664,23 +666,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vikas\\.nuget\\packages\\": {},
+    "C:\\Users\\v-vikasb\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular2\\SPA.Model\\SPA.Model.csproj",
+      "projectUniqueName": "D:\\local\\SPA.Model\\SPA.Model.csproj",
       "projectName": "SPA.Model",
-      "projectPath": "D:\\Angular2\\SPA.Model\\SPA.Model.csproj",
-      "packagesPath": "C:\\Users\\vikas\\.nuget\\packages\\",
-      "outputPath": "D:\\Angular2\\SPA.Model\\obj\\",
+      "projectPath": "D:\\local\\SPA.Model\\SPA.Model.csproj",
+      "packagesPath": "C:\\Users\\v-vikasb\\.nuget\\packages\\",
+      "outputPath": "D:\\local\\SPA.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\vikas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\v-vikasb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -688,7 +690,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://financebiservices.pkgs.visualstudio.com/_packaging/Retrieve/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {

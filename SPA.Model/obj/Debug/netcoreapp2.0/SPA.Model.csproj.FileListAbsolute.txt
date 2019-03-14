@@ -16,3 +16,12 @@ D:\Angular2\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.AssemblyInfoInputs.cache
 D:\Angular2\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.AssemblyInfo.cs
 D:\Angular2\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.dll
 D:\Angular2\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.pdb
+D:\local\SPA.Model\bin\Debug\netcoreapp2.0\SPA.Model.deps.json
+D:\local\SPA.Model\bin\Debug\netcoreapp2.0\SPA.Model.dll
+D:\local\SPA.Model\bin\Debug\netcoreapp2.0\SPA.Model.pdb
+D:\local\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.csprojAssemblyReference.cache
+D:\local\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.csproj.CoreCompileInputs.cache
+D:\local\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.AssemblyInfoInputs.cache
+D:\local\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.AssemblyInfo.cs
+D:\local\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.dll
+D:\local\SPA.Model\obj\Debug\netcoreapp2.0\SPA.Model.pdb

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPAJobPortal", "SPAJobPortal\SPAJobPortal.csproj", "{9FC90122-1816-4569-87F5-4413FE1C7A7D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPA.Data", "SPA.Data\SPA.Data.csproj", "{183C7F2A-8A36-4B6B-A0CB-A8DF9F15D410}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPA.Model", "SPA.Model\SPA.Model.csproj", "{071A9CAC-9AF0-4470-BEC6-3653F4EECFE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA.Data.Contract", "SPA.Data.Contract\SPA.Data.Contract.csproj", "{3C6335EE-4724-461D-8E11-812F44B17C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPA.Data.Contract", "SPA.Data.Contract\SPA.Data.Contract.csproj", "{3C6335EE-4724-461D-8E11-812F44B17C71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAJobPortal", "SPAJobPortal\SPAJobPortal.csproj", "{44C09504-2D26-4BC3-86DC-B522F441FE39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9FC90122-1816-4569-87F5-4413FE1C7A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FC90122-1816-4569-87F5-4413FE1C7A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FC90122-1816-4569-87F5-4413FE1C7A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FC90122-1816-4569-87F5-4413FE1C7A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{183C7F2A-8A36-4B6B-A0CB-A8DF9F15D410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{183C7F2A-8A36-4B6B-A0CB-A8DF9F15D410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{183C7F2A-8A36-4B6B-A0CB-A8DF9F15D410}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{3C6335EE-4724-461D-8E11-812F44B17C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C6335EE-4724-461D-8E11-812F44B17C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C6335EE-4724-461D-8E11-812F44B17C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C09504-2D26-4BC3-86DC-B522F441FE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C09504-2D26-4BC3-86DC-B522F441FE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C09504-2D26-4BC3-86DC-B522F441FE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C09504-2D26-4BC3-86DC-B522F441FE39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

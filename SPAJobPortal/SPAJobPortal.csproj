@@ -1,114 +1,55 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
-    <Compile Remove="ClientApp\app\components\login\**" />
-    <Content Remove="ClientApp\**" />
-    <EmbeddedResource Remove="ClientApp\app\components\login\**" />
-    <None Remove="ClientApp\app\components\login\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="ClientApp\app\app.routing.module.ts" />
-    <None Remove="ClientApp\app\components\comments\comment.component.ts" />
-    <None Remove="ClientApp\app\components\comment\comment.component.ts" />
-    <None Remove="ClientApp\app\components\new-job\newJob.component.ts" />
-    <None Remove="ClientApp\app\components\not-found\not-found.component.ts" />
-    <None Remove="ClientApp\app\components\rich-textbox\rich-textbox.component.ts" />
-    <None Remove="ClientApp\app\components\shared\auth\auth.guard.ts" />
-    <None Remove="ClientApp\app\components\shared\auth\auth.service.ts" />
-    <None Remove="ClientApp\app\components\shared\model\IComment.ts" />
-    <None Remove="ClientApp\app\components\shared\model\IFileUpload.ts" />
-    <None Remove="ClientApp\app\components\shared\model\IJobDetails.ts" />
-    <None Remove="ClientApp\app\components\shared\model\ILike.ts" />
-    <None Remove="ClientApp\app\components\shared\model\IUser.ts" />
-    <None Remove="ClientApp\app\components\shared\services\PagerService.ts" />
-    <None Remove="ClientApp\app\components\shared\services\search.service.ts" />
-    <None Remove="ClientApp\app\components\shared\services\user.service.ts" />
-    <None Remove="ClientApp\app\components\user\sign-up\sign-up.component.ts" />
-    <None Remove="ClientApp\app\components\user\user.component.ts" />
-    <None Remove="ClientApp\app\store\description\description.action.ts" />
-    <None Remove="ClientApp\app\store\description\description.epics.ts" />
-    <None Remove="ClientApp\app\store\description\description.reducer.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="ClientApp\e2e\tsconfig.e2e.json" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\SPA.Data.Contract\SPA.Data.Contract.csproj" />
     <ProjectReference Include="..\SPA.Data\SPA.Data.csproj" />
+    <ProjectReference Include="..\SPA.Model\SPA.Model.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\app.routing.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\comments\comment.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\comment\comment.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\new-job\newJob.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\not-found\not-found.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\recentpost\recentpost.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\rich-textbox\rich-textbox.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\auth\auth.guard.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\auth\auth.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\model\IComment.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\model\IFileUpload.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\model\IJobDetails.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\model\ILike.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\model\IUser.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\services\PagerService.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\services\search.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\shared\services\user.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\user\sign-up\sign-up.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\user\user.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\store\description\description.action.ts" />
-    <TypeScriptCompile Include="ClientApp\app\store\description\description.epics.ts" />
-    <TypeScriptCompile Include="ClientApp\app\store\description\description.reducer.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\app\components\likes\" />
-  </ItemGroup>
-
-  <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-
-    <!-- In development, the dist files won't exist on the first run or when cloning to
-         a different machine, so rebuild them if not already present. -->
-    <Message Importance="high" Text="Performing first-run Webpack build..." />
-    <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js" />
-    <Exec Command="node node_modules/webpack/bin/webpack.js" />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
   </Target>
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec Command="npm install" />
-    <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod" />
-    <Exec Command="node node_modules/webpack/bin/webpack.js --env.prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
-      <DistFiles Include="wwwroot\dist\**; ClientApp\dist\**" />
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

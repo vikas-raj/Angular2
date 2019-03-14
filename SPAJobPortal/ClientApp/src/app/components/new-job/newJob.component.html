@@ -1,0 +1,182 @@
+<h2>Add new Job</h2>
+<!--<input [(ngModel)]="date2"
+       ngui-datetime-picker
+       [disabled-dates]="date2DisabledDates"
+       [min-date]="date2MinDate"
+       [max-date]="date2MaxDate"
+       [show-close-layer]="true"
+       [show-week-numbers]="true"
+       [is-draggable]="false" />-->
+<form [formGroup]="newJobForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="aboutTheCompany">aboutTheCompany</label>
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="aboutTheCompany" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['aboutTheCompany'].errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"> <rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.aboutTheCompany: ''" [parentSource]="AboutTheCompany"></rich-text-control></div></div>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['aboutTheCompany'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['aboutTheCompany'].errors.required">aboutTheCompany is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="companyName">companyName</label>
+        <input type="text" formControlName="companyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['companyName'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['companyName'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['companyName'].errors.required">companyName is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="companyWebsite">companyWebsite</label>
+        <input type="text" formControlName="companyWebsite" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['companyWebsite'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['companyWebsite'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['companyWebsite'].errors.required">companyWebsite is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="jobLocation">jobLocation</label>
+        <input type="text" formControlName="jobLocation" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['jobLocation'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['jobLocation'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['jobLocation'].errors.required">jobLocation is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="position">position</label>
+        <input type="text" formControlName="position" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['position'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['position'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['position'].errors.required">position is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="salary">salary</label>
+        <input type="text" formControlName="salary" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['salary'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['salary'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['salary'].errors.required">salary is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="interviewVenue">interviewVenue</label>
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="interviewVenue" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['interviewVenue'].errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"><rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.interviewVenue: ''" [parentSource]="InterViewVenue"></rich-text-control></div></div>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['interviewVenue'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['interviewVenue'].errors.required">interviewVenue is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="eligibilityCriteria">eligibilityCriteria</label>
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="eligibilityCriteria" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['eligibilityCriteria'].errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"><div class="rich-text-control"> <rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.eligibilityCriteria: ''" [parentSource]="EligibilityCriteria"></rich-text-control></div></div>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['eligibilityCriteria'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['eligibilityCriteria'].errors.required">eligibilityCriteria is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="howToApply">howToApply</label>
+        <div class="row">
+            <div class="col-md-8"><input type="text" formControlName="howToApply" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['howToApply'].errors }" /></div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"><rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.howToApply: ''" [parentSource]="HowtoApply"> </rich-text-control></div></div>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['howToApply'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['howToApply'].errors.required">howToApply is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="keyskills">Key Skills</label>
+        <div class="row">
+            <ng-select [items]="dropdownListForKeySkills"
+                       [multiple]="true"
+                       formControlName="keySkills"
+                       [addTag]="true"
+                       bindLabel="login"
+                       placeholder="Key Skills"
+                       (change)="onItemSelect($event)"
+                       [typeahead]="typeaheadKeySkills"
+                       [(ngModel)]="selectedKeySkills">
+                <!--<ng-template ng-option-tmp let-item="item">
+                    <img [src]="item.avatar_url" width="20px" height="20px"> {{item.login}}
+                </ng-template>-->
+            </ng-select>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['howToApply'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['howToApply'].errors.required">howToApply is required</div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="form-group">
+        <label for="registrationLink">registrationLink</label>
+        <input type="text" formControlName="registrationLink" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['registrationLink'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['registrationLink'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['registrationLink'].errors.required">registrationLink is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="importantNote">importantNote</label>
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="importantNote" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['importantNote'].errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"> <div class="rich-text-control"><rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.importantNote: ''" [parentSource]="ImportantNotes"></rich-text-control></div></div>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['importantNote'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['importantNote'].errors.required">importantNote is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="eventDate">eventDate</label>
+        <input required
+               formControlName="eventDate"
+               ngui-datetime-picker
+               [min-date]="date2MinDate"
+               [close-on-select]="false" />
+        <!--<input type="text" formControlName="eventDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['eventDate'].errors }" />-->
+        <div *ngIf="submitted && newJobForm.controls['eventDate'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['eventDate'].errors.required">eventDate is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastDateToApply">lastDateToApply</label>
+        <input required
+               formControlName="lastDateToApply"
+               ngui-datetime-picker
+               [min-date]="date2MinDate"
+               [close-on-select]="false" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['lastDateToApply'].errors }" />
+        <div *ngIf="submitted && newJobForm.controls['lastDateToApply'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['lastDateToApply'].errors.required">lastDateToApply is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="experienceRequired">experienceRequired</label>
+        <div class="row">
+            <div class="col-md-8">
+                <input type="text" formControlName="experienceRequired" class="form-control" [ngClass]="{ 'is-invalid': submitted && newJobForm.controls['experienceRequired'].errors }" />
+            </div>
+            <div class="col-md-1">OR</div>
+            <div class="col-md-3"><div class="rich-text-control"> <rich-text-control (onAdd)="onAdd($event)" [parentValue]="newJobForm != undefined ? newJobForm.value.experienceRequired: ''" [parentSource]="ExperienceRequired"></rich-text-control></div></div>
+        </div>
+        <div *ngIf="submitted && newJobForm.controls['experienceRequired'].errors" class="invalid-feedback">
+            <div *ngIf="newJobForm.controls['experienceRequired'].errors.required">experienceRequired is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Create New Job</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/signup']" class="btn btn-link">Go to Job List</a>
+    </div>
+</form>
+<!--<quill-editor #editor></quill-editor>-->

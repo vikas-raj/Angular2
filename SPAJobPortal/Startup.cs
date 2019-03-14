@@ -2,7 +2,7 @@ namespace SPAJobPortal
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.SpaServices.Webpack;
+    using Microsoft.AspNetCore.SpaServices.AngularCli;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.EntityFrameworkCore;
@@ -16,6 +16,7 @@ namespace SPAJobPortal
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
     using SPA.Model.Config;
+    using Microsoft.AspNetCore.Mvc;
 
     public class Startup
     {
@@ -29,6 +30,7 @@ namespace SPAJobPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddOptions();
             services.AddMvc();
 
@@ -53,40 +55,55 @@ namespace SPAJobPortal
                     };
                 });
 
-            services.AddAuthorization(options =>{
+            services.AddAuthorization(options => {
                 options.AddPolicy("UserROles", claim => claim.RequireClaim("UserRole", "User"));
                 options.AddPolicy("AdminROles", claim => claim.RequireClaim("AdminRole", "Admin"));
+            });
+
+            // In production, the Angular files will be served from this directory
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist/ClientApp";
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true
-                });
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseStaticFiles();
-            
+            app.UseSpaStaticFiles();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "Homecontroller/{action=Index}/{id?}");
+            });
 
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                spa.Options.SourcePath = "ClientApp";
+
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "start");
+                }
             });
         }
 
@@ -99,7 +116,7 @@ namespace SPAJobPortal
                     warnings.Throw(RelationalEventId.QueryClientEvaluationWarning);
                 }), ServiceLifetime.Transient);
             services.AddDbContext<DataContext>(
-                options => options.UseSqlServer(this.Configuration.GetConnectionString("JobportalConnection"), b =>b.MigrationsAssembly("SPA.Data")).ConfigureWarnings(warnings =>
+                options => options.UseSqlServer(this.Configuration.GetConnectionString("JobportalConnection"), b => b.MigrationsAssembly("SPA.Data")).ConfigureWarnings(warnings =>
                 {
                     warnings.Throw(RelationalEventId.QueryClientEvaluationWarning);
                 }), ServiceLifetime.Transient);

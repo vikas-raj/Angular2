@@ -26,3 +26,17 @@ D:\Angular2\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.AssemblyInfo.cs
 D:\Angular2\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.csproj.CopyComplete
 D:\Angular2\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.dll
 D:\Angular2\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.pdb
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Data.deps.json
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Data.dll
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Data.pdb
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Data.Contract.dll
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Model.dll
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Data.Contract.pdb
+D:\local\SPA.Data\bin\Debug\netcoreapp2.0\SPA.Model.pdb
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.csprojAssemblyReference.cache
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.csproj.CoreCompileInputs.cache
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.AssemblyInfoInputs.cache
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.AssemblyInfo.cs
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.csproj.CopyComplete
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.dll
+D:\local\SPA.Data\obj\Debug\netcoreapp2.0\SPA.Data.pdb
