@@ -33,6 +33,7 @@ import { QuillModule } from 'ngx-quill';
 import { RichTextBoxComponent } from './components/rich-textbox/rich-textbox.component';
 import { PagerService } from './components/shared/services/PagerService';
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { NgSelectModule, NgOption } from '@ng-select/ng-select';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     ReactiveFormsModule,
     CommonModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     ModalModule.forRoot(),
