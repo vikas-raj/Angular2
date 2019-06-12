@@ -104,7 +104,7 @@ namespace SPAJobPortal.Controllers
         public IActionResult SaveDescription([FromBody]JobDetails jobDetail)
         {
             this.JobSearchUow.JobSearchDetails.Add(jobDetail);
-            this.JobSearchUow.Commit();            
+            this.JobSearchUow.Commit();
             return Ok(jobDetail);
         }
 
@@ -123,7 +123,7 @@ namespace SPAJobPortal.Controllers
                 var like = new Like() { JobDetailFK = jobDetail.JobDetailId, IsActive = true, CreatedDate = DateTime.Now, UserName = User.FindFirst(ClaimTypes.Name).Value };
                 this.JobSearchUow.Likes.Add(like);
             }
-           
+
             this.JobSearchUow.Commit();
 
             var result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList().FirstOrDefault(x => x.JobDetailId == jobDetail.JobDetailId);
@@ -131,5 +131,19 @@ namespace SPAJobPortal.Controllers
             return Ok(result);
         }
 
+        [HttpPost("CommentDescription")]
+        public IActionResult CommentDescription([FromBody]Comment commentObj)
+        {
+
+            var comment = new Comment() { JobDetailFk = commentObj.JobDetailFk, CommentDiscription = commentObj.CommentDiscription, ComentedDate = DateTime.Now, UserName = User.FindFirst(ClaimTypes.Name).Value };
+            this.JobSearchUow.Comments.Add(comment);
+
+
+            this.JobSearchUow.Commit();
+
+            var result = this.JobSearchUow.JobSearchDetails.GetAll(x => x.Likes, y => y.Comments).ToList().FirstOrDefault(x => x.JobDetailId == commentObj.JobDetailFk);
+
+            return Ok(result);
+        }
     }
 }

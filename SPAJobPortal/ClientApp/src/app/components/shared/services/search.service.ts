@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { IJobDetails } from "../model/IJobDetails";
 import { Injectable, Inject } from '@angular/core';
 import { map, tap, catchError } from "rxjs/operators";
+import { IComment } from "../model/IComment";
 
 @Injectable()
 export class SearchInfoService {
@@ -15,6 +16,7 @@ export class SearchInfoService {
   readonly saveDescriptionurl = 'api/Description/SaveDescription';
   readonly deleteDescriptionurl = 'api/Description/DeleteDescription';
   readonly likeDescriptionurl = 'api/Description/LikeDescription';
+  readonly commentDescriptionurl = 'api/Description/CommentDescription';
   readonly baseUrl = 'api/Description';
 
 
@@ -77,6 +79,18 @@ export class SearchInfoService {
     return this.http.post(url, description, options).pipe(
       map((p) => this.extractData(p)),
       tap(data => console.log('likeDescription : ' + JSON.stringify(data))),
+      catchError(this.handleError));
+  }
+
+  commentDescription(comment: IComment): Observable<IJobDetails> {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
+    let options = new RequestOptions({ headers: headers });
+
+    const url = `${this.commentDescriptionurl}`;
+
+    return this.http.post(url, comment, options).pipe(
+      map((p) => this.extractData(p)),
+      tap(data => console.log('commentDescription : ' + JSON.stringify(data))),
       catchError(this.handleError));
   }
 

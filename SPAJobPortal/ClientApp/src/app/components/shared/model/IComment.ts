@@ -1,4 +1,4 @@
-﻿import { IJobDetails } from "./IJobDetails";
+import { IJobDetails } from "./IJobDetails";
 
 export interface IComment {
     commentId: number,
@@ -6,5 +6,5 @@ export interface IComment {
     comentedDate: Date,
     commentDiscription: string,
     JobDetailFK: number,
-    isActive: boolean
+    //isActive: boolean
 }

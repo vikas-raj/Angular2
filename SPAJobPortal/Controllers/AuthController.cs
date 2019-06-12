@@ -5,6 +5,7 @@
     using System.Security.Claims;
     using System.Text;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Options;
@@ -23,6 +24,15 @@
             appSettingsConfig = options.Value;
             this.AuthUow = repo;
         }
+
+        [Authorize]
+        [HttpGet("GetUserInfo")]
+        public IActionResult GetUserInfo()
+        {
+            var claims = this.User.Claims;
+            return Ok();
+        }
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)

@@ -8,6 +8,7 @@ import { IJobDetails } from "../shared/model/IJobDetails";
 import { Description_Actions } from "../../store/description/description.action";
 import { DomSanitizer } from '@angular/platform-browser';
 import { SubscriptionLike } from 'rxjs';
+import { IComment } from '../shared/model/IComment';
 
 @Component({
   selector: 'description',
@@ -35,7 +36,7 @@ export class DescriptionComponent {
         if (record.jobDetailId != -1 && record.jobDetailId != undefined) {
           this.description = record;
           this.likeCount = record.likes.filter(a => a.isActive == true).length;
-          this.commentCount = record.comments.filter(a => a.isActive == true).length;
+          this.commentCount = record.comments.length;
         }
         else if (record.jobDetailId == undefined) {
           this.likeCount = 0;
@@ -59,6 +60,12 @@ export class DescriptionComponent {
 
   onFocusComment() {
     this.description_Actions.descritionCommentFocus_True();
+  }
+
+  commentDescriptionEmit(comment: IComment): void {
+    comment.JobDetailFK = this.description.jobDetailId;
+    this.description_Actions.commentDescription(comment);
+    var asd = comment;
   }
 }
 

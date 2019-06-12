@@ -25,9 +25,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\store\app\app.actions.ts" />
+    <None Remove="ClientApp\src\app\store\app\app.epics.ts" />
+    <None Remove="ClientApp\src\app\store\app\app.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SPA.Data.Contract\SPA.Data.Contract.csproj" />
     <ProjectReference Include="..\SPA.Data\SPA.Data.csproj" />
     <ProjectReference Include="..\SPA.Model\SPA.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\store\app\app.actions.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\app\app.epics.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\app\app.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

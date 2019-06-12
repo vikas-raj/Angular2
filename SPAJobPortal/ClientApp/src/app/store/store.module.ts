@@ -19,12 +19,15 @@ import { RootEpics } from './store.epics';
 
 import { Description_Actions } from './description/description.action';
 import { Description_Epics } from './description/description.epics';
+import { App_Actions } from './app/app.actions';
+import { App_Epics } from './app/app.epics';
+import { App_Service } from './app/app.service';
 
 
 //import { createLogger } from 'redux-logger';
 @NgModule({
   imports: [NgReduxModule, NgReduxRouterModule.forRoot()],
-  providers: [RootEpics, Description_Actions, Description_Epics],
+  providers: [RootEpics, App_Actions, App_Epics, App_Service, Description_Actions, Description_Epics],
 })
 export class StoreModule {
   constructor(
